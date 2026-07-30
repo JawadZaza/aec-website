@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <path d="M60 4 L112 24 V60 C112 92 90 112 60 118 C30 112 8 92 8 60 V24 Z" fill="#0F406B" stroke="#FFD600" stroke-width="4"/>
+  <text x="60" y="70" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#FFD600" text-anchor="middle">AEC</text>
+</svg>

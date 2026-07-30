@@ -1,0 +1,21 @@
+{
+  "clubName": "Applied Engineering Club",
+  "tagline": "Fullerton College's student-run home for hands-on engineering — build, compete, and learn together.",
+  "logo": "assets/images/logo/aec-logo.svg",
+  "banner": {
+    "enabled": true,
+    "text": "General meeting this Thursday at 5:00 PM in Building 1200, Room 1201 — see you there!",
+    "link": ""
+  },
+  "meeting": {
+    "day": "Every other Tuesday",
+    "time": "5:00 PM - 6:30 PM",
+    "location": "Fullerton College, Building 1200, Room 1201",
+    "notes": "No meeting during finals week or college holidays. Check the announcement banner for one-off changes."
+  },
+  "joinFormUrl": "https://forms.google.com/example-applied-engineering-club-signup",
+  "socials": {
+    "instagram": "https://www.instagram.com/",
+    "discord": "https://discord.gg/example"
+  }
+}

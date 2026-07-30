@@ -1,0 +1,22 @@
+{
+  "competitions": [
+    {
+      "name": "Collegiate Unmanned Aircraft Systems Competition (CUASC)",
+      "description": "Our flagship team designs, builds, and flies a fixed-wing UAS to complete autonomous mission tasks against other colleges and universities.",
+      "status": "In Progress",
+      "date": "2026-10-15"
+    },
+    {
+      "name": "Campus Mini Maker Faire",
+      "description": "Club members will showcase 3D-printed and student-designed projects to the Fullerton College community.",
+      "status": "Upcoming",
+      "date": "2026-11-07"
+    },
+    {
+      "name": "Regional Robotics Showcase",
+      "description": "A friendly build-and-demo event where our robotics subteam presented an autonomous line-following rover.",
+      "status": "Completed",
+      "date": "2026-04-18"
+    }
+  ]
+}

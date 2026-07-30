@@ -1,0 +1,149 @@
+# Sveltia CMS configuration
+# See SETUP.md for the plain-English walkthrough.
+
+backend:
+  name: github
+  # EDIT THIS after you create your GitHub repo — format is "your-username/your-repo-name"
+  repo: YOUR-GITHUB-USERNAME/aec-website
+  branch: main
+
+# Default upload location for any image field that doesn't set its own folder below.
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "events"
+    label: "Events"
+    files:
+      - name: "events"
+        label: "Events"
+        file: "data/events.json"
+        fields:
+          - label: "Events"
+            name: "events"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "Time", name: "time", widget: "string", hint: "e.g. 5:00 PM - 6:30 PM" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+  - name: "officers"
+    label: "Officers"
+    files:
+      - name: "officers"
+        label: "Officers"
+        file: "data/officers.json"
+        fields:
+          - label: "Officers"
+            name: "officers"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.role}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role / Title", name: "role", widget: "string" }
+              - label: "Photo"
+                name: "photo"
+                widget: "image"
+                media_folder: "/assets/images/officers"
+                public_folder: "/assets/images/officers"
+              - { label: "Short Bio", name: "bio", widget: "text" }
+
+  - name: "competitions"
+    label: "Competitions"
+    files:
+      - name: "competitions"
+        label: "Competitions"
+        file: "data/competitions.json"
+        fields:
+          - label: "Competitions"
+            name: "competitions"
+            widget: "list"
+            summary: "{{fields.name}} ({{fields.status}})"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                options: ["Upcoming", "In Progress", "Completed"]
+              - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - name: "gallery"
+        label: "Gallery"
+        file: "data/gallery.json"
+        fields:
+          - label: "Photos"
+            name: "gallery"
+            widget: "list"
+            summary: "{{fields.caption}}"
+            hint: "Drag the handle on the left of each photo to reorder — that's the order they'll appear on the site."
+            fields:
+              - label: "Photo"
+                name: "photo"
+                widget: "image"
+                media_folder: "/assets/images/gallery"
+                public_folder: "/assets/images/gallery"
+              - { label: "Caption", name: "caption", widget: "string" }
+
+  - name: "sections"
+    label: "Sections"
+    files:
+      - name: "sections"
+        label: "Sections"
+        file: "data/sections-config.json"
+        fields:
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            summary: "{{fields.label}} — {{fields.visible}}"
+            hint: "Drag to reorder sections on the homepage. Turn a section off to hide it without deleting its content."
+            fields:
+              - { label: "Section", name: "id", widget: "hidden" }
+              - { label: "Section Name", name: "label", widget: "string", read_only: true }
+              - { label: "Visible on site", name: "visible", widget: "boolean", default: true }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "settings"
+        label: "Site Settings"
+        file: "data/site-settings.json"
+        fields:
+          - { label: "Club Name", name: "clubName", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "text" }
+          - label: "Logo"
+            name: "logo"
+            widget: "image"
+            media_folder: "/assets/images/logo"
+            public_folder: "/assets/images/logo"
+          - label: "Announcement Banner"
+            name: "banner"
+            widget: "object"
+            fields:
+              - { label: "Show banner", name: "enabled", widget: "boolean", default: false }
+              - { label: "Banner text", name: "text", widget: "string", required: false }
+              - { label: "Banner link (optional)", name: "link", widget: "string", required: false, hint: "Leave blank for no link" }
+          - label: "Meeting Info"
+            name: "meeting"
+            widget: "object"
+            fields:
+              - { label: "Day", name: "day", widget: "string", hint: "e.g. Every other Tuesday" }
+              - { label: "Time", name: "time", widget: "string", hint: "e.g. 5:00 PM - 6:30 PM" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Notes / exceptions", name: "notes", widget: "text", required: false, hint: "e.g. No meeting during finals week" }
+          - label: "Join Form URL"
+            name: "joinFormUrl"
+            widget: "string"
+            hint: "Paste your Google Form link here — it's used by every Join button on the site"
+          - label: "Socials"
+            name: "socials"
+            widget: "object"
+            fields:
+              - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+              - { label: "Discord URL", name: "discord", widget: "string", required: false }

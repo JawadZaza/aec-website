@@ -1,0 +1,28 @@
+{
+  "gallery": [
+    {
+      "photo": "assets/images/gallery/gallery-1.svg",
+      "caption": "Members learning CAD basics at our 3D printing workshop."
+    },
+    {
+      "photo": "assets/images/gallery/gallery-3.svg",
+      "caption": "The CUASC drone team testing a build ahead of competition."
+    },
+    {
+      "photo": "assets/images/gallery/gallery-2.svg",
+      "caption": "Robotics build night in the engineering lab."
+    },
+    {
+      "photo": "assets/images/gallery/gallery-4.svg",
+      "caption": "First-time soldering at our PCB workshop."
+    },
+    {
+      "photo": "assets/images/gallery/gallery-6.svg",
+      "caption": "A packed room at our fall general meeting."
+    },
+    {
+      "photo": "assets/images/gallery/gallery-5.svg",
+      "caption": "Club social night — pizza and project show-and-tell."
+    }
+  ]
+}

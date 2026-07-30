@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#333333"/>
+  <g opacity="0.15" stroke="#FFD600" stroke-width="6" fill="none">
+    <circle cx="650" cy="120" r="90"/>
+    <rect x="60" y="400" width="160" height="160"/>
+    <path d="M400 100 L470 240 L330 240 Z"/>
+  </g>
+  <text x="400" y="310" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#FFD600" text-anchor="middle">Robotics Build Night</text>
+  <text x="400" y="345" font-family="Arial, sans-serif" font-size="16" fill="#FFD600" text-anchor="middle" opacity="0.8">Placeholder photo — replace in CMS</text>
+</svg>

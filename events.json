@@ -1,0 +1,32 @@
+{
+  "events": [
+    {
+      "title": "General Meeting: Fall Kickoff",
+      "date": "2026-08-13",
+      "time": "5:00 PM - 6:30 PM",
+      "location": "Building 1200, Room 1201",
+      "description": "Kick off the semester with club updates, project sign-ups, and pizza. New members welcome!"
+    },
+    {
+      "title": "Intro to 3D Printing Workshop",
+      "date": "2026-08-27",
+      "time": "4:00 PM - 6:00 PM",
+      "location": "Engineering Lab, Building 1200",
+      "description": "Hands-on workshop covering CAD basics and how to use the club's 3D printers for your first part."
+    },
+    {
+      "title": "CUASC Drone Team Build Night",
+      "date": "2026-09-10",
+      "time": "5:30 PM - 8:00 PM",
+      "location": "Engineering Lab, Building 1200",
+      "description": "Open build session for the Collegiate Unmanned Aircraft Systems Competition team. All skill levels welcome."
+    },
+    {
+      "title": "Resume & Internship Panel",
+      "date": "2026-09-24",
+      "time": "5:00 PM - 6:30 PM",
+      "location": "Building 1200, Room 1201",
+      "description": "Local engineers and transfer alumni share tips on resumes, internships, and transferring into engineering programs."
+    }
+  ]
+}

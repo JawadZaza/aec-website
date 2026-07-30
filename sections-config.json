@@ -1,0 +1,12 @@
+{
+  "sections": [
+    { "id": "hero", "label": "Hero", "visible": true },
+    { "id": "gallery", "label": "Gallery Showcase", "visible": true },
+    { "id": "events", "label": "Upcoming Events", "visible": true },
+    { "id": "officers", "label": "Meet the Officers", "visible": true },
+    { "id": "competitions", "label": "Current Competitions", "visible": true },
+    { "id": "join", "label": "Join / Application", "visible": true },
+    { "id": "meeting-info", "label": "Meeting Info", "visible": true },
+    { "id": "socials", "label": "Socials", "visible": true }
+  ]
+}
