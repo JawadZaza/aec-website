@@ -4,7 +4,7 @@
 backend:
   name: github
   # EDIT THIS after you create your GitHub repo — format is "your-username/your-repo-name"
-  repo: Jawadzaza/aec-website
+  repo: YOUR-GITHUB-USERNAME/aec-website
   branch: main
 
 # Default upload location for any image field that doesn't set its own folder below.
