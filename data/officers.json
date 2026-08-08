@@ -1,32 +1,32 @@
 {
   "officers": [
     {
-      "name": "Jordan Lee",
-      "role": "President",
+      "name": "Jawad Zaza",
+      "role": "Co-President",
       "photo": "assets/images/officers/officer-1.svg",
       "bio": "Mechanical engineering major leading club operations and the CUASC drone team. Loves CAD, coffee, and competition season."
     },
     {
-      "name": "Priya Nair",
-      "role": "Vice President",
+      "name": "Samuel Giron",
+      "role": "Co-President",
       "photo": "assets/images/officers/officer-2.svg",
       "bio": "Coordinates workshops and officer logistics. Focused on making engineering approachable for first-time makers."
     },
     {
-      "name": "Marcus Cole",
-      "role": "Treasurer",
+      "name": "Aaron Burke",
+      "role": "Vice President",
       "photo": "assets/images/officers/officer-3.svg",
       "bio": "Manages the club budget, fundraising, and competition travel funding. Electrical engineering transfer student."
     },
     {
-      "name": "Ava Torres",
+      "name": "Jane Nguyen",
       "role": "Secretary",
       "photo": "assets/images/officers/officer-4.svg",
       "bio": "Keeps meeting notes, communications, and the club calendar running smoothly. Big fan of well-labeled wire harnesses."
     },
     {
-      "name": "Devon Park",
-      "role": "Events Chair",
+      "name": "Mary Michael",
+      "role": "Member Coordiantor",
       "photo": "assets/images/officers/officer-5.svg",
       "bio": "Plans workshops, socials, and campus tabling events. Always looking for new project ideas from members."
     }
