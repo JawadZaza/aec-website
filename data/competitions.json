@@ -2,13 +2,13 @@
   "competitions": [
     {
       "name": "Collegiate Unmanned Aircraft Systems Competition (CUASC) '26",
-      "description": "Our FullWorks team designed, built, and flew a quadcopter UAS to complete autonomous mission tasks against other colleges and universities in June of 2026. Learn more at https://www.calstatela.edu/ecst/c-uasc",
+      "description": "Our FullWorks team designed, built, and flew a quadcopter UAS to complete autonomous mission tasks against other colleges and universities in June of 2026. Learn more at \n\nhttps://www.calstatela.edu/ecst/c-uasc",
       "status": "Completed",
       "date": "2026-06-06"
     },
     {
       "name": "Collegiate Unmanned Aircraft Systems Competition (CUASC) '27",
-      "description": "Our FullWorks team will iterate on the former MQ-611 UAS to complete autonomous mission tasks against other colleges and universities in June 2027. Learn more at https://www.calstatela.edu/ecst/c-uasc",
+      "description": "Our FullWorks team will iterate on the former MQ-611 UAS to complete autonomous mission tasks against other colleges and universities in June 2027. Learn more at \n\nhttps://www.calstatela.edu/ecst/c-uasc",
       "status": "In Progress",
       "date": "2027-06-06"
     }
