@@ -379,6 +379,12 @@ nav.main-nav a:hover {
   }
 }
 
+@media (min-width: 1100px) {
+  .grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
 .card {
   background: var(--white);
   border-radius: var(--radius);
