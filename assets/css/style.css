@@ -18,6 +18,9 @@
   --status-upcoming: #0f406b;
   --status-done: #8a8a8a;
 
+  --grid-line: rgba(15, 64, 107, 0.08);
+  --grid-size: 24px;
+
   --font-body: "Open Sans", Arial, Helvetica, sans-serif;
 
   --radius: 10px;
@@ -38,8 +41,19 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--gray-text);
-  background: var(--white);
   line-height: 1.55;
+
+  /* Fixed grid "under" the whole page. Sections above it use semi-
+     transparent backgrounds so this shows through, and it stays put while
+     content scrolls over it for a subtle sense of depth. Because each
+     section's own tint differs (white/gray/navy), the grid reads as a
+     different shade from section to section without any JS. */
+  background-color: var(--white);
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-attachment: fixed;
 }
 
 img {
@@ -85,7 +99,7 @@ section {
 }
 
 section:nth-of-type(even) {
-  background: var(--gray-bg);
+  background: rgba(240, 240, 240, 0.88);
 }
 
 .btn {
@@ -296,7 +310,11 @@ nav.main-nav a:hover {
 
 /* ---------- Hero ---------- */
 #section-hero {
-  background: var(--navy) url("../images/hero/hero-pattern.svg") center / cover no-repeat;
+  background-color: rgba(15, 64, 107, 0.92);
+  background-image: url("../images/hero/hero-pattern.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: var(--white);
   padding: 90px 0;
   text-align: center;
@@ -555,7 +573,7 @@ nav.main-nav a:hover {
 
 /* ---------- Join section ---------- */
 #section-join {
-  background: var(--navy);
+  background: rgba(15, 64, 107, 0.92);
   color: var(--white);
   text-align: center;
 }
@@ -656,7 +674,7 @@ nav.main-nav a:hover {
 
 /* ---------- Footer ---------- */
 footer.site-footer {
-  background: var(--navy-dark);
+  background: rgba(10, 45, 77, 0.94);
   color: #cfdcea;
   padding: 50px 0 24px;
 }
