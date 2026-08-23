@@ -376,14 +376,14 @@ nav.main-nav a:hover {
   }
 }
 
-/* Officers grid sizes itself to however many officers there are — no fixed
-   column count, so it never leaves a lopsided empty column when the roster
-   changes. Cards stretch to fill the row edge-to-edge (matching the other
-   full-width sections above/below); only an incomplete last row centers
-   itself instead of hugging the left edge. */
-.officers-grid {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  justify-content: center;
+/* Officers grid: main.js sets --officer-count to the exact number of
+   officers, so the row always shows that many equal, full-width columns —
+   no CSS guesswork about container math, so it can't misfire like auto-fit
+   did. Below 1100px it falls back to the standard 2/3-column tiers. */
+@media (min-width: 1100px) {
+  .officers-grid {
+    grid-template-columns: repeat(var(--officer-count, 4), 1fr);
+  }
 }
 
 .card {

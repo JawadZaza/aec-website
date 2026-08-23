@@ -224,6 +224,8 @@ function renderOfficers(items) {
     return node;
   }
 
+  grid.style.setProperty("--officer-count", items.length);
+
   items.forEach((o) => {
     const card = el(`
       <article class="card officer-card" tabindex="0" role="button" aria-haspopup="dialog">
