@@ -374,15 +374,15 @@ nav.main-nav a:hover {
   .grid-3 {
     grid-template-columns: repeat(3, 1fr);
   }
-  .grid-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
-@media (min-width: 1100px) {
-  .grid-5 {
-    grid-template-columns: repeat(5, 1fr);
-  }
+/* Officers grid sizes itself to however many officers there are — no fixed
+   column count, so it never leaves a lopsided empty column when the roster
+   changes. Each card sits between 220-260px wide, and a short last row is
+   centered instead of stretched to fill the container. */
+.officers-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
+  justify-content: center;
 }
 
 .card {
