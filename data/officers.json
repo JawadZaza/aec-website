@@ -4,31 +4,25 @@
       "name": "Jawad Zaza",
       "role": "Co-President",
       "photo": "assets/images/officers/officer-1.svg",
-      "bio": "Jawad is a mechanical engineering student and Co-President leading club operations and the CUASC drone team. He's passionate about hands-on design and helping members turn classroom concepts into real projects. His vision for AEC is a space where every student, regardless of experience, has room to build, compete, and grow."
+      "bio": "Jawad Zaza is an Electrical & Computer Engineering student preparing to transfer in Spring 2027. He joined AEC in his first semester and worked his way up from Social Media Director to Workshop Director before becoming President, where he built the club's first funded team for the CSU California Unmanned Aerial Systems Competition (C-UASC) and led development of its autonomous UAV. His engineering experience extends beyond AEC through internships at Paradyne Medical and UC Irvine's Industrial Assessment Center. As President, Jawad is passionate about turning AEC into a launchpad for hands-on engineering experience and helping members find their own path into the field."
     },
     {
       "name": "Samuel Giron",
       "role": "Co-President",
-      "photo": "assets/images/officers/officer-2.svg",
-      "bio": "Samuel is a mechanical engineering student who joined AEC a year ago and quickly became Flight Systems Hardware Lead for the CUASC drone team. He plans to transfer to Cal Poly Pomona next year. As Co-President, his goal is to grow club membership and connect students with hands-on engineering opportunities."
-    },
-    {
-      "name": "Aaron Burke",
-      "role": "Vice President",
-      "photo": "assets/images/officers/officer-3.svg",
-      "bio": "Manages the club budget, fundraising, and competition travel funding. Electrical engineering transfer student."
+      "photo": "/assets/images/officers/Samuel Girone.jpg",
+      "bio": "Samuel is a mechanical engineering student who joined AEC a year ago and quickly became Flight Systems Hardware Lead for the CUASC drone team. He plans to transfer to Cal Poly Pomona next year. As Co-President, Samuel is passionate about making engineering approachable, sharing the excitement of hands-on problem-solving, and helping identify motivated members who can contribute to future competition teams."
     },
     {
       "name": "Jane Nguyen",
       "role": "Secretary",
-      "photo": "assets/images/officers/officer-4.svg",
-      "bio": "Jane is an Electrical Engineering student planning to transfer in Spring 2027. Through AEC's CUASC autonomous UAV project, she found a community for turning classroom knowledge into real, hands-on work. As Secretary, her vision is to expand hands-on projects and industry connections for students of every experience level."
+      "photo": "/assets/images/officers/Jane Nyguen Website.jpg",
+      "bio": "Jane Nguyen is an Electrical Engineering student preparing to transfer in Spring 2027. Through AEC’s C-UASC autonomous UAV project, she has transformed classroom concepts into hands-on engineering experience while learning through experimentation and collaboration. As an officer, Jane is committed to expanding practical projects, strengthening industry connections, and creating opportunities for students at every experience level to build confidence, explore engineering, and discover what they can accomplish."
     },
     {
       "name": "Mary Michael",
       "role": "Member Coordinator",
-      "photo": "assets/images/officers/officer-5.svg",
-      "bio": "Mary is a third-year Aerospace Engineering student who has been an AEC member since Fall 2025 and plans to transfer after Spring 2027. As Member Coordinator, her vision is to build a close-knit community where students connect over shared interests, collaborate on projects, and form lasting friendships."
+      "photo": "/assets/images/officers/Mary Michael Website Photo.png",
+      "bio": "Mary Michael is a third-year Aerospace Engineering student at Fullerton College who joined AEC in Fall 2025 and plans to transfer after Spring 2027. She values the club as a place to connect with peers who share her academic and professional interests. Mary’s vision is to foster a close-knit community where students strengthen their teamwork skills, collaborate as engineers, and build meaningful friendships that extend beyond the classroom."
     }
   ]
 }
