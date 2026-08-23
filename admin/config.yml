@@ -9,7 +9,7 @@ backend:
 
 # Default upload location for any image field that doesn't set its own folder below.
 media_folder: "assets/images/uploads"
-public_folder: "/assets/images/uploads"
+public_folder: "assets/images/uploads"
 
 collections:
   - name: "events"
@@ -47,8 +47,8 @@ collections:
               - label: "Photo"
                 name: "photo"
                 widget: "image"
-                media_folder: "/assets/images/officers"
-                public_folder: "/assets/images/officers"
+                media_folder: "assets/images/officers"
+                public_folder: "assets/images/officers"
               - { label: "Short Bio", name: "bio", widget: "text" }
 
   - name: "competitions"
@@ -87,8 +87,8 @@ collections:
               - label: "Photo"
                 name: "photo"
                 widget: "image"
-                media_folder: "/assets/images/gallery"
-                public_folder: "/assets/images/gallery"
+                media_folder: "assets/images/gallery"
+                public_folder: "assets/images/gallery"
               - { label: "Caption", name: "caption", widget: "string" }
 
   - name: "sections"
@@ -120,8 +120,8 @@ collections:
           - label: "Logo"
             name: "logo"
             widget: "image"
-            media_folder: "/assets/images/logo"
-            public_folder: "/assets/images/logo"
+            media_folder: "assets/images/logo"
+            public_folder: "assets/images/logo"
           - label: "Announcement Banner"
             name: "banner"
             widget: "object"

@@ -226,18 +226,70 @@ function renderOfficers(items) {
 
   items.forEach((o) => {
     const card = el(`
-      <article class="card officer-card">
+      <article class="card officer-card" tabindex="0" role="button" aria-haspopup="dialog">
         <img src="${o.photo}" alt="${escapeHtml(o.name)}" loading="lazy">
         <div class="card-body">
           <h3>${escapeHtml(o.name)}</h3>
           <div class="officer-role">${escapeHtml(o.role)}</div>
           <p>${escapeHtml(o.bio || "")}</p>
+          <span class="officer-more">View Profile</span>
         </div>
       </article>
     `);
+    card.addEventListener("click", () => openOfficerModal(o));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openOfficerModal(o);
+      }
+    });
     grid.appendChild(card);
   });
   return node;
+}
+
+let officerModalLastFocused = null;
+
+function openOfficerModal(o) {
+  closeOfficerModal();
+  officerModalLastFocused = document.activeElement;
+
+  const overlay = el(`
+    <div class="modal-overlay" id="officer-modal" role="dialog" aria-modal="true">
+      <div class="modal-content officer-modal-content">
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <img src="${o.photo}" alt="${escapeHtml(o.name)}">
+        <div class="modal-body">
+          <h3>${escapeHtml(o.name)}</h3>
+          <div class="officer-role">${escapeHtml(o.role)}</div>
+          <p>${escapeHtml(o.bio || "")}</p>
+        </div>
+      </div>
+    </div>
+  `);
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeOfficerModal();
+  });
+  overlay.querySelector(".modal-close").addEventListener("click", closeOfficerModal);
+  document.addEventListener("keydown", handleOfficerModalKeydown);
+
+  document.body.appendChild(overlay);
+  document.body.classList.add("modal-open");
+  overlay.querySelector(".modal-close").focus();
+}
+
+function handleOfficerModalKeydown(e) {
+  if (e.key === "Escape") closeOfficerModal();
+}
+
+function closeOfficerModal() {
+  const overlay = document.getElementById("officer-modal");
+  if (!overlay) return;
+  overlay.remove();
+  document.body.classList.remove("modal-open");
+  document.removeEventListener("keydown", handleOfficerModalKeydown);
+  if (officerModalLastFocused) officerModalLastFocused.focus();
 }
 
 function renderCompetitions(items) {
