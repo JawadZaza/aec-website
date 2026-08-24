@@ -1,0 +1,16 @@
+{
+  "advisors": [
+    {
+      "name": "Advisor Name",
+      "role": "Faculty Advisor",
+      "photo": "assets/images/officers/officer-1.svg",
+      "bio": "Placeholder bio — replace with your advisor's background, department, and how they support the club."
+    },
+    {
+      "name": "Advisor Name",
+      "role": "Faculty Advisor",
+      "photo": "assets/images/officers/officer-2.svg",
+      "bio": "Placeholder bio — replace with your advisor's background, department, and how they support the club."
+    }
+  ]
+}

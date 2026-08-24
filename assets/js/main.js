@@ -7,6 +7,7 @@ const DATA_PATHS = {
   sections: "data/sections-config.json",
   events: "data/events.json",
   officers: "data/officers.json",
+  advisors: "data/advisors.json",
   competitions: "data/competitions.json",
   gallery: "data/gallery.json"
 };
@@ -42,10 +43,12 @@ function statusClass(status) {
 
 /* ---------- Header ---------- */
 function renderHeader(settings) {
-  document.getElementById("header-club-name").textContent = settings.clubName;
   document.getElementById("header-logo").src = settings.logo;
   document.getElementById("header-logo").alt = settings.clubName + " logo";
   document.title = settings.clubName + " — Fullerton College";
+
+  const favicon = document.getElementById("favicon");
+  if (favicon) favicon.href = settings.logo;
 }
 
 function renderNav(visibleSectionIds) {
@@ -53,13 +56,14 @@ function renderNav(visibleSectionIds) {
     hero: "Home",
     gallery: "Gallery",
     events: "Events",
-    officers: "Officers",
+    officers: "Board",
+    advisors: "Advisors",
     competitions: "Competitions",
     join: "Join",
     "meeting-info": "Meetings",
     socials: "Socials"
   };
-  const anchorable = new Set(["hero", "gallery", "events", "officers", "competitions", "meeting-info", "socials"]);
+  const anchorable = new Set(["hero", "gallery", "events", "officers", "advisors", "competitions", "meeting-info", "socials"]);
 
   const list = document.getElementById("main-nav-list");
   const mobile = document.getElementById("mobile-nav");
@@ -142,9 +146,18 @@ function renderBanner(settings) {
 /* ---------- Section renderers ---------- */
 function renderHero(settings) {
   const node = document.getElementById("tpl-hero").content.cloneNode(true);
+  node.getElementById("hero-logo").src = settings.logo;
+  node.getElementById("hero-logo").alt = settings.clubName + " logo";
   node.getElementById("hero-club-name").textContent = settings.clubName;
   node.getElementById("hero-tagline").textContent = settings.tagline || "";
   node.getElementById("hero-join-btn").href = settings.joinFormUrl || "#";
+
+  const bannerImage = settings.hero && settings.hero.backgroundImage;
+  if (bannerImage) {
+    const heroSection = node.getElementById("section-hero");
+    heroSection.style.backgroundImage =
+      `linear-gradient(rgba(15, 64, 107, 0.75), rgba(15, 64, 107, 0.75)), url("${bannerImage}")`;
+  }
 
   const socials = node.getElementById("hero-socials");
   const s = settings.socials || {};
@@ -174,13 +187,20 @@ function renderGallery(items) {
     return node;
   }
 
-  items.forEach((item) => {
+  items.forEach((item, index) => {
     const card = el(`
-      <figure class="card gallery-card">
+      <figure class="card gallery-card" tabindex="0" role="button" aria-haspopup="dialog">
         <img src="${item.photo}" alt="${escapeHtml(item.caption || "")}" loading="lazy">
         <figcaption class="gallery-caption">${escapeHtml(item.caption || "")}</figcaption>
       </figure>
     `);
+    card.addEventListener("click", () => openGalleryLightbox(items, index));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openGalleryLightbox(items, index);
+      }
+    });
     grid.appendChild(card);
   });
   return node;
@@ -215,12 +235,12 @@ function renderEvents(items) {
   return node;
 }
 
-function renderOfficers(items) {
-  const node = document.getElementById("tpl-officers").content.cloneNode(true);
-  const grid = node.getElementById("officers-grid");
+function renderPersonGrid(items, templateId, gridId, emptyMessage) {
+  const node = document.getElementById(templateId).content.cloneNode(true);
+  const grid = node.getElementById(gridId);
 
   if (!items.length) {
-    grid.appendChild(el(`<p class="empty-state">Officer info coming soon.</p>`));
+    grid.appendChild(el(`<p class="empty-state">${emptyMessage}</p>`));
     return node;
   }
 
@@ -248,6 +268,14 @@ function renderOfficers(items) {
     grid.appendChild(card);
   });
   return node;
+}
+
+function renderOfficers(items) {
+  return renderPersonGrid(items, "tpl-officers", "officers-grid", "Board info coming soon.");
+}
+
+function renderAdvisors(items) {
+  return renderPersonGrid(items, "tpl-advisors", "advisors-grid", "Advisor info coming soon.");
 }
 
 let officerModalLastFocused = null;
@@ -292,6 +320,76 @@ function closeOfficerModal() {
   document.body.classList.remove("modal-open");
   document.removeEventListener("keydown", handleOfficerModalKeydown);
   if (officerModalLastFocused) officerModalLastFocused.focus();
+}
+
+/* ---------- Gallery lightbox ---------- */
+let lightboxItems = [];
+let lightboxIndex = 0;
+let lightboxLastFocused = null;
+
+function openGalleryLightbox(items, index) {
+  closeGalleryLightbox();
+  lightboxItems = items;
+  lightboxIndex = index;
+  lightboxLastFocused = document.activeElement;
+
+  const overlay = el(`
+    <div class="modal-overlay" id="gallery-lightbox" role="dialog" aria-modal="true">
+      <div class="modal-content lightbox-content">
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Previous photo">&#10094;</button>
+        <button class="lightbox-nav lightbox-next" aria-label="Next photo">&#10095;</button>
+        <img id="lightbox-img" src="" alt="">
+        <div class="modal-body lightbox-body">
+          <p id="lightbox-caption"></p>
+          <span id="lightbox-counter" class="lightbox-counter"></span>
+        </div>
+      </div>
+    </div>
+  `);
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeGalleryLightbox();
+  });
+  overlay.querySelector(".modal-close").addEventListener("click", closeGalleryLightbox);
+  overlay.querySelector(".lightbox-prev").addEventListener("click", () => showLightboxPhoto(lightboxIndex - 1));
+  overlay.querySelector(".lightbox-next").addEventListener("click", () => showLightboxPhoto(lightboxIndex + 1));
+  document.addEventListener("keydown", handleLightboxKeydown);
+
+  document.body.appendChild(overlay);
+  document.body.classList.add("modal-open");
+  showLightboxPhoto(index);
+  overlay.querySelector(".modal-close").focus();
+}
+
+function showLightboxPhoto(index) {
+  const count = lightboxItems.length;
+  lightboxIndex = (index + count) % count;
+  const item = lightboxItems[lightboxIndex];
+  document.getElementById("lightbox-img").src = item.photo;
+  document.getElementById("lightbox-img").alt = item.caption || "";
+  document.getElementById("lightbox-caption").textContent = item.caption || "";
+  document.getElementById("lightbox-counter").textContent = `${lightboxIndex + 1} / ${count}`;
+
+  const overlay = document.getElementById("gallery-lightbox");
+  const showNav = count > 1;
+  overlay.querySelector(".lightbox-prev").classList.toggle("hidden", !showNav);
+  overlay.querySelector(".lightbox-next").classList.toggle("hidden", !showNav);
+}
+
+function handleLightboxKeydown(e) {
+  if (e.key === "Escape") closeGalleryLightbox();
+  if (e.key === "ArrowLeft") showLightboxPhoto(lightboxIndex - 1);
+  if (e.key === "ArrowRight") showLightboxPhoto(lightboxIndex + 1);
+}
+
+function closeGalleryLightbox() {
+  const overlay = document.getElementById("gallery-lightbox");
+  if (!overlay) return;
+  overlay.remove();
+  document.body.classList.remove("modal-open");
+  document.removeEventListener("keydown", handleLightboxKeydown);
+  if (lightboxLastFocused) lightboxLastFocused.focus();
 }
 
 function renderCompetitions(items) {
@@ -414,6 +512,7 @@ const SECTION_RENDERERS = {
   gallery: (data) => renderGallery(data.gallery),
   events: (data) => renderEvents(data.events),
   officers: (data) => renderOfficers(data.officers),
+  advisors: (data) => renderAdvisors(data.advisors),
   competitions: (data) => renderCompetitions(data.competitions),
   join: (data) => renderJoin(data.settings),
   "meeting-info": (data) => renderMeetingInfo(data.settings),
@@ -423,11 +522,12 @@ const SECTION_RENDERERS = {
 async function boot() {
   const root = document.getElementById("sections-root");
   try {
-    const [settings, sectionsFile, eventsFile, officersFile, competitionsFile, galleryFile] = await Promise.all([
+    const [settings, sectionsFile, eventsFile, officersFile, advisorsFile, competitionsFile, galleryFile] = await Promise.all([
       loadJSON(DATA_PATHS.settings),
       loadJSON(DATA_PATHS.sections),
       loadJSON(DATA_PATHS.events),
       loadJSON(DATA_PATHS.officers),
+      loadJSON(DATA_PATHS.advisors),
       loadJSON(DATA_PATHS.competitions),
       loadJSON(DATA_PATHS.gallery)
     ]);
@@ -436,6 +536,7 @@ async function boot() {
       settings,
       events: eventsFile.events,
       officers: officersFile.officers,
+      advisors: advisorsFile.advisors,
       competitions: competitionsFile.competitions,
       gallery: galleryFile.gallery
     };

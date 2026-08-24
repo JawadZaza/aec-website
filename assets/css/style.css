@@ -220,8 +220,9 @@ header.site-header {
 }
 
 .brand img {
-  height: 42px;
-  width: 42px;
+  height: 58px;
+  width: 58px;
+  object-fit: contain;
 }
 
 nav.main-nav {
@@ -320,6 +321,14 @@ nav.main-nav a:hover {
   text-align: center;
 }
 
+.hero-logo {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+  margin: 0 auto 22px;
+  display: block;
+}
+
 #section-hero h1 {
   color: var(--white);
   font-size: 2.4rem;
@@ -372,6 +381,10 @@ nav.main-nav a:hover {
 @media (min-width: 600px) {
   #section-hero h1 {
     font-size: 3.2rem;
+  }
+  .hero-logo {
+    width: 160px;
+    height: 160px;
   }
 }
 
@@ -433,6 +446,15 @@ nav.main-nav a:hover {
 }
 
 /* Gallery */
+.gallery-card {
+  cursor: pointer;
+}
+
+.gallery-card:focus-visible {
+  outline: 3px solid var(--gold-dark);
+  outline-offset: -3px;
+}
+
 .gallery-card img {
   height: 220px;
 }
@@ -808,6 +830,63 @@ body.modal-open {
 .officer-modal-content .modal-body h3 {
   font-size: 1.3rem;
   margin-bottom: 4px;
+}
+
+/* Gallery lightbox */
+.lightbox-content {
+  max-width: 720px;
+  background: var(--navy-dark);
+}
+
+.lightbox-content #lightbox-img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  background: #000;
+}
+
+.lightbox-body {
+  padding: 16px 22px 20px;
+  color: var(--white);
+  text-align: center;
+}
+
+.lightbox-body p {
+  margin: 0 0 6px;
+}
+
+.lightbox-counter {
+  font-size: 0.8rem;
+  color: #9fb3c8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.55);
+  color: var(--white);
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.lightbox-nav:hover {
+  background: var(--navy);
+}
+
+.lightbox-prev {
+  left: 10px;
+}
+
+.lightbox-next {
+  right: 10px;
 }
 
 /* ---------- Utility ---------- */

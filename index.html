@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" href="assets/images/logo/aec-logo.svg" type="image/svg+xml">
+<link rel="icon" id="favicon" href="assets/images/logo/aec-logo.svg">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -19,7 +19,6 @@
   <div class="header-inner">
     <a href="#top" class="brand">
       <img id="header-logo" src="assets/images/logo/aec-logo.svg" alt="Applied Engineering Club logo">
-      <span id="header-club-name">Applied Engineering Club</span>
     </a>
     <nav class="main-nav" id="main-nav">
       <ul id="main-nav-list"></ul>
@@ -45,6 +44,7 @@
 <template id="tpl-hero">
   <section id="section-hero">
     <div class="container">
+      <img class="hero-logo" id="hero-logo" src="" alt="">
       <h1 id="hero-club-name"></h1>
       <p class="tagline" id="hero-tagline"></p>
       <div class="hero-actions">
@@ -79,9 +79,19 @@
 <template id="tpl-officers">
   <section id="section-officers">
     <div class="container">
-      <h2 class="section-title">Meet the Officers</h2>
+      <h2 class="section-title">Meet the Board</h2>
       <p class="section-subtitle">The students running the club this year.</p>
       <div class="grid grid-2 grid-3 officers-grid" id="officers-grid"></div>
+    </div>
+  </section>
+</template>
+
+<template id="tpl-advisors">
+  <section id="section-advisors">
+    <div class="container">
+      <h2 class="section-title">Advisors</h2>
+      <p class="section-subtitle">Faculty support behind the club.</p>
+      <div class="grid grid-2 grid-3 officers-grid" id="advisors-grid"></div>
     </div>
   </section>
 </template>

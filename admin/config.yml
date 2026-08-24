@@ -31,24 +31,37 @@ collections:
               - { label: "Description", name: "description", widget: "text" }
 
   - name: "officers"
-    label: "Officers"
+    label: "Board"
     files:
       - name: "officers"
-        label: "Officers"
+        label: "Board"
         file: "data/officers.json"
         fields:
-          - label: "Officers"
+          - label: "Board Members"
             name: "officers"
             widget: "list"
             summary: "{{fields.name}} — {{fields.role}}"
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Role / Title", name: "role", widget: "string" }
-              - label: "Photo"
-                name: "photo"
-                widget: "image"
-                media_folder: "assets/images/officers"
-                public_folder: "assets/images/officers"
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Short Bio", name: "bio", widget: "text" }
+
+  - name: "advisors"
+    label: "Advisors"
+    files:
+      - name: "advisors"
+        label: "Advisors"
+        file: "data/advisors.json"
+        fields:
+          - label: "Advisors"
+            name: "advisors"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.role}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role / Title", name: "role", widget: "string", hint: "e.g. Faculty Advisor" }
+              - { label: "Photo", name: "photo", widget: "image" }
               - { label: "Short Bio", name: "bio", widget: "text" }
 
   - name: "competitions"
@@ -84,11 +97,7 @@ collections:
             summary: "{{fields.caption}}"
             hint: "Drag the handle on the left of each photo to reorder — that's the order they'll appear on the site."
             fields:
-              - label: "Photo"
-                name: "photo"
-                widget: "image"
-                media_folder: "assets/images/gallery"
-                public_folder: "assets/images/gallery"
+              - { label: "Photo", name: "photo", widget: "image" }
               - { label: "Caption", name: "caption", widget: "string" }
 
   - name: "sections"
@@ -117,11 +126,16 @@ collections:
         fields:
           - { label: "Club Name", name: "clubName", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "text" }
-          - label: "Logo"
-            name: "logo"
-            widget: "image"
-            media_folder: "assets/images/logo"
-            public_folder: "assets/images/logo"
+          - { label: "Logo", name: "logo", widget: "image" }
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - label: "Background image (optional)"
+                name: "backgroundImage"
+                widget: "image"
+                required: false
+                hint: "Replaces the plain navy hero background with your photo. Leave empty to keep the default navy background."
           - label: "Announcement Banner"
             name: "banner"
             widget: "object"
