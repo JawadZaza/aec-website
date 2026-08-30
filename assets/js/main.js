@@ -43,12 +43,12 @@ function statusClass(status) {
 
 /* ---------- Header ---------- */
 function renderHeader(settings) {
-  document.getElementById("header-logo").src = settings.logo;
+  document.getElementById("header-logo").src = imgPath(settings.logo);
   document.getElementById("header-logo").alt = settings.clubName + " logo";
   document.title = settings.clubName + " — Fullerton College";
 
   const favicon = document.getElementById("favicon");
-  if (favicon) favicon.href = settings.logo;
+  if (favicon) favicon.href = imgPath(settings.logo);
 }
 
 function renderNav(visibleSectionIds) {
@@ -146,7 +146,7 @@ function renderBanner(settings) {
 /* ---------- Section renderers ---------- */
 function renderHero(settings) {
   const node = document.getElementById("tpl-hero").content.cloneNode(true);
-  node.getElementById("hero-logo").src = settings.logo;
+  node.getElementById("hero-logo").src = imgPath(settings.logo);
   node.getElementById("hero-logo").alt = settings.clubName + " logo";
   node.getElementById("hero-club-name").textContent = settings.clubName;
   node.getElementById("hero-tagline").textContent = settings.tagline || "";
@@ -156,7 +156,7 @@ function renderHero(settings) {
   if (bannerImage) {
     const heroSection = node.getElementById("section-hero");
     heroSection.style.backgroundImage =
-      `linear-gradient(rgba(15, 64, 107, 0.75), rgba(15, 64, 107, 0.75)), url("${bannerImage}")`;
+      `linear-gradient(rgba(15, 64, 107, 0.75), rgba(15, 64, 107, 0.75)), url("${imgPath(bannerImage)}")`;
   }
 
   const socials = node.getElementById("hero-socials");
@@ -190,7 +190,7 @@ function renderGallery(items) {
   items.forEach((item, index) => {
     const card = el(`
       <figure class="card gallery-card" tabindex="0" role="button" aria-haspopup="dialog">
-        <img src="${item.photo}" alt="${escapeHtml(item.caption || "")}" loading="lazy">
+        <img src="${imgPath(item.photo)}" alt="${escapeHtml(item.caption || "")}" loading="lazy">
         <figcaption class="gallery-caption">${escapeHtml(item.caption || "")}</figcaption>
       </figure>
     `);
@@ -249,7 +249,7 @@ function renderPersonGrid(items, templateId, gridId, emptyMessage) {
   items.forEach((o) => {
     const card = el(`
       <article class="card officer-card" tabindex="0" role="button" aria-haspopup="dialog">
-        <img src="${o.photo}" alt="${escapeHtml(o.name)}" loading="lazy">
+        <img src="${imgPath(o.photo)}" alt="${escapeHtml(o.name)}" loading="lazy">
         <div class="card-body">
           <h3>${escapeHtml(o.name)}</h3>
           <div class="officer-role">${escapeHtml(o.role)}</div>
@@ -288,7 +288,7 @@ function openOfficerModal(o) {
     <div class="modal-overlay" id="officer-modal" role="dialog" aria-modal="true">
       <div class="modal-content officer-modal-content">
         <button class="modal-close" aria-label="Close">&times;</button>
-        <img src="${o.photo}" alt="${escapeHtml(o.name)}">
+        <img src="${imgPath(o.photo)}" alt="${escapeHtml(o.name)}">
         <div class="modal-body">
           <h3>${escapeHtml(o.name)}</h3>
           <div class="officer-role">${escapeHtml(o.role)}</div>
@@ -366,7 +366,7 @@ function showLightboxPhoto(index) {
   const count = lightboxItems.length;
   lightboxIndex = (index + count) % count;
   const item = lightboxItems[lightboxIndex];
-  document.getElementById("lightbox-img").src = item.photo;
+  document.getElementById("lightbox-img").src = imgPath(item.photo);
   document.getElementById("lightbox-img").alt = item.caption || "";
   document.getElementById("lightbox-caption").textContent = item.caption || "";
   document.getElementById("lightbox-counter").textContent = `${lightboxIndex + 1} / ${count}`;
@@ -473,7 +473,7 @@ function renderFooter(settings) {
   footer.appendChild(el(`
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="${settings.logo}" alt="${escapeHtml(settings.clubName)} logo">
+        <img src="${imgPath(settings.logo)}" alt="${escapeHtml(settings.clubName)} logo">
         <strong>${escapeHtml(settings.clubName)}</strong>
         <p>Fullerton College</p>
       </div>
@@ -498,6 +498,16 @@ function renderFooter(settings) {
       &copy; ${new Date().getFullYear()} ${escapeHtml(settings.clubName)}.
     </div>
   `));
+}
+
+function imgPath(path) {
+  // The CMS occasionally saves uploaded image paths with a leading "/",
+  // which resolves from the domain root instead of this site's own folder
+  // (a problem since this site lives at a subpath like /aec-website/, not
+  // the root). Stripping it makes every image path resolve relative to
+  // this page instead, so this class of bug can't break images again.
+  if (!path) return path;
+  return path.replace(/^\/+/, "");
 }
 
 function escapeHtml(str) {
