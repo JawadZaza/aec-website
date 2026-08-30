@@ -1,18 +1,11 @@
 {
   "events": [
     {
-      "title": "Social Night: Cookies & Games",
-      "date": "2026-09-02",
-      "time": "6:00 PM - 8:00 PM",
-      "location": "STEM Center",
-      "description": "Kick off the year with cookies, casual games, and a chance to meet fellow members."
-    },
-    {
-      "title": "Social Night: Trivia (Club Rush)",
+      "title": "Social Night 1",
       "date": "2026-09-09",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "Club Rush trivia night — test your engineering knowledge and meet the club during Club Rush week."
+      "description": "Kick off the semester with casual games and a chance to meet fellow members."
     },
     {
       "title": "Transfer Panel",
@@ -22,25 +15,18 @@
       "description": "Panel discussion on transferring into four-year engineering programs, featuring past AEC members."
     },
     {
-      "title": "Challenge Night: Drone Egg Drop",
-      "date": "2026-09-23",
+      "title": "Fusion 360 & 3D Printing Workshop",
+      "date": "2026-09-30",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "Design and build a drone-deployed egg protection system in this hands-on challenge night."
+      "description": "Hands-on workshop covering Fusion 360 CAD design and 3D printing fundamentals."
     },
     {
-      "title": "Fusion 360 Workshop — Part 1",
+      "title": "Egg Drop Challenge",
       "date": "2026-10-07",
-      "time": "6:00 PM - 8:00 PM",
-      "location": "STEM Center",
-      "description": "Part 1 of our two-part Fusion 360 workshop — learn the fundamentals of parametric CAD design."
-    },
-    {
-      "title": "Fusion 360 Workshop — Part 2",
-      "date": "2026-10-09",
       "time": "TBD",
-      "location": "TBD",
-      "description": "Part 2 of our Fusion 360 workshop, continuing from Part 1. Time and location to be announced."
+      "location": "Quad",
+      "description": "Design and build an egg protection system in this hands-on engineering challenge."
     },
     {
       "title": "Industry Panel",
@@ -50,21 +36,14 @@
       "description": "Hear from working engineers across industry about their career paths and advice for students."
     },
     {
-      "title": "Challenge Night: Bridge Build",
-      "date": "2026-10-21",
-      "time": "6:00 PM - 8:00 PM",
-      "location": "STEM Center",
-      "description": "Design, build, and test a structural bridge in this hands-on engineering challenge."
-    },
-    {
-      "title": "KiCAD Workshop",
+      "title": "KiCAD & Altium Workshop",
       "date": "2026-10-28",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "Hands-on workshop covering PCB design basics using KiCAD."
+      "description": "Hands-on workshop covering PCB design basics using KiCAD and Altium."
     },
     {
-      "title": "Guest Speaker Panel (In Person)",
+      "title": "In-Person Guest Speaker",
       "date": "2026-11-04",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
@@ -72,17 +51,17 @@
     },
     {
       "title": "Arduino Workshop",
-      "date": "2026-11-18",
+      "date": "2026-11-25",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
       "description": "Hands-on introduction to Arduino programming and circuits."
     },
     {
-      "title": "Hackathon",
+      "title": "Social Night 2",
       "date": "2026-12-02",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "Semester-ending hackathon challenge — build a project in a single session."
+      "description": "Wrap up the semester with food, games, and celebrating a great year."
     }
   ]
 }

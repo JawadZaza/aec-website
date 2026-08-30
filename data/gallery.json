@@ -9,20 +9,40 @@
       "caption": "The CUASC drone team testing a build ahead of competition."
     },
     {
-      "photo": "assets/images/gallery/gallery-2.svg",
-      "caption": "Robotics build night in the engineering lab."
+      "photo": "assets/images/uploads/IMG_2682.jpg",
+      "caption": "Wiring the flight controller and power distribution board."
     },
     {
-      "photo": "assets/images/gallery/gallery-4.svg",
-      "caption": "First-time soldering at our PCB workshop."
+      "photo": "assets/images/uploads/IMG_2744.jpg",
+      "caption": "Freshly 3D-printed landing legs for the drone frame."
     },
     {
-      "photo": "assets/images/gallery/gallery-6.svg",
-      "caption": "A packed room at our fall general meeting."
+      "photo": "assets/images/uploads/IMG_2825.jpg",
+      "caption": "3D printing a competition part on the Bambu Lab printer."
     },
     {
-      "photo": "assets/images/gallery/gallery-5.svg",
-      "caption": "Club social night — pizza and project show-and-tell."
+      "photo": "assets/images/uploads/IMG_2931.jpg",
+      "caption": "A close look at the Pixhawk flight controller wiring."
+    },
+    {
+      "photo": "assets/images/uploads/IMG_2976.jpg",
+      "caption": "A freshly printed center plate, straight off the printer."
+    },
+    {
+      "photo": "assets/images/uploads/IMG_3122.jpg",
+      "caption": "CAD work on the drone frame in Fusion 360."
+    },
+    {
+      "photo": "assets/images/uploads/IMG_2772.jpg",
+      "caption": "The finished quadcopter staged and ready for testing."
+    },
+    {
+      "photo": "assets/images/uploads/IMG_2774.jpg",
+      "caption": "The drone and controller staged at the CUASC competition in Mojave."
+    },
+    {
+      "photo": "assets/images/uploads/IMG_2798.jpg",
+      "caption": "The team celebrating after a successful flight at Mojave Air & Space Port."
     }
   ]
 }
