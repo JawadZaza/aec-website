@@ -302,12 +302,17 @@ function presentModal(overlay, originEl) {
 
   content.offsetHeight; // force reflow so the starting position registers
 
+  // Double rAF: guarantees the browser has painted the starting position
+  // before the transition kicks in, so the grow-to-center effect isn't
+  // skipped on the first frame.
   requestAnimationFrame(() => {
-    overlay.style.transition = "opacity 0.2s ease";
-    content.style.transition = "transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease";
-    overlay.style.opacity = "1";
-    content.style.transform = "none";
-    content.style.opacity = "1";
+    requestAnimationFrame(() => {
+      overlay.style.transition = "opacity 0.2s ease";
+      content.style.transition = "transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease";
+      overlay.style.opacity = "1";
+      content.style.transform = "none";
+      content.style.opacity = "1";
+    });
   });
 }
 
