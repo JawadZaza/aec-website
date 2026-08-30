@@ -6,8 +6,8 @@
     "backgroundImage": "assets/images/uploads/fullerton-college-aerial.jpg"
   },
   "banner": {
-    "enabled": false,
-    "text": "",
+    "enabled": true,
+    "text": "Next meeting: Sept 9th, 6-8 PM at the STEM Center.",
     "link": ""
   },
   "meeting": {
