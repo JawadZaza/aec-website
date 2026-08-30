@@ -194,11 +194,11 @@ function renderGallery(items) {
         <figcaption class="gallery-caption">${escapeHtml(item.caption || "")}</figcaption>
       </figure>
     `);
-    card.addEventListener("click", () => openGalleryLightbox(items, index));
+    card.addEventListener("click", () => openGalleryLightbox(items, index, card));
     card.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        openGalleryLightbox(items, index);
+        openGalleryLightbox(items, index, card);
       }
     });
     grid.appendChild(card);
@@ -258,11 +258,11 @@ function renderPersonGrid(items, templateId, gridId, emptyMessage) {
         </div>
       </article>
     `);
-    card.addEventListener("click", () => openOfficerModal(o));
+    card.addEventListener("click", () => openOfficerModal(o, card));
     card.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        openOfficerModal(o);
+        openOfficerModal(o, card);
       }
     });
     grid.appendChild(card);
@@ -278,9 +278,73 @@ function renderAdvisors(items) {
   return renderPersonGrid(items, "tpl-advisors", "advisors-grid", "Advisor info coming soon.");
 }
 
+/* Animates a modal's content growing from the card that opened it (and
+   shrinking back into it on close), instead of just appearing centered. */
+function presentModal(overlay, originEl) {
+  document.body.appendChild(overlay);
+  document.body.classList.add("modal-open");
+  overlay._originEl = originEl || null;
+
+  const content = overlay.querySelector(".modal-content");
+  if (!originEl || !content) return;
+
+  const first = originEl.getBoundingClientRect();
+  overlay.style.opacity = "0";
+  content.style.transition = "none";
+  content.style.opacity = "0.6";
+
+  const last = content.getBoundingClientRect();
+  const dx = first.left + first.width / 2 - (last.left + last.width / 2);
+  const dy = first.top + first.height / 2 - (last.top + last.height / 2);
+  const scaleX = first.width / last.width;
+  const scaleY = first.height / last.height;
+  content.style.transform = `translate(${dx}px, ${dy}px) scale(${scaleX}, ${scaleY})`;
+
+  content.offsetHeight; // force reflow so the starting position registers
+
+  requestAnimationFrame(() => {
+    overlay.style.transition = "opacity 0.2s ease";
+    content.style.transition = "transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease";
+    overlay.style.opacity = "1";
+    content.style.transform = "none";
+    content.style.opacity = "1";
+  });
+}
+
+function dismissModal(overlay) {
+  if (!overlay) return;
+  const content = overlay.querySelector(".modal-content");
+  const originEl = overlay._originEl;
+
+  const cleanup = () => {
+    overlay.remove();
+    document.body.classList.remove("modal-open");
+  };
+
+  if (!originEl || !content) {
+    cleanup();
+    return;
+  }
+
+  const first = originEl.getBoundingClientRect();
+  const last = content.getBoundingClientRect();
+  const dx = first.left + first.width / 2 - (last.left + last.width / 2);
+  const dy = first.top + first.height / 2 - (last.top + last.height / 2);
+  const scaleX = first.width / last.width;
+  const scaleY = first.height / last.height;
+
+  content.style.transition = "transform 0.25s cubic-bezier(0.4, 0, 1, 1), opacity 0.2s ease";
+  overlay.style.transition = "opacity 0.2s ease";
+  content.style.transform = `translate(${dx}px, ${dy}px) scale(${scaleX}, ${scaleY})`;
+  content.style.opacity = "0";
+  overlay.style.opacity = "0";
+
+  setTimeout(cleanup, 250);
+}
+
 let officerModalLastFocused = null;
 
-function openOfficerModal(o) {
+function openOfficerModal(o, originEl) {
   closeOfficerModal();
   officerModalLastFocused = document.activeElement;
 
@@ -304,8 +368,7 @@ function openOfficerModal(o) {
   overlay.querySelector(".modal-close").addEventListener("click", closeOfficerModal);
   document.addEventListener("keydown", handleOfficerModalKeydown);
 
-  document.body.appendChild(overlay);
-  document.body.classList.add("modal-open");
+  presentModal(overlay, originEl);
   overlay.querySelector(".modal-close").focus();
 }
 
@@ -316,8 +379,7 @@ function handleOfficerModalKeydown(e) {
 function closeOfficerModal() {
   const overlay = document.getElementById("officer-modal");
   if (!overlay) return;
-  overlay.remove();
-  document.body.classList.remove("modal-open");
+  dismissModal(overlay);
   document.removeEventListener("keydown", handleOfficerModalKeydown);
   if (officerModalLastFocused) officerModalLastFocused.focus();
 }
@@ -327,7 +389,7 @@ let lightboxItems = [];
 let lightboxIndex = 0;
 let lightboxLastFocused = null;
 
-function openGalleryLightbox(items, index) {
+function openGalleryLightbox(items, index, originEl) {
   closeGalleryLightbox();
   lightboxItems = items;
   lightboxIndex = index;
@@ -356,8 +418,7 @@ function openGalleryLightbox(items, index) {
   overlay.querySelector(".lightbox-next").addEventListener("click", () => showLightboxPhoto(lightboxIndex + 1));
   document.addEventListener("keydown", handleLightboxKeydown);
 
-  document.body.appendChild(overlay);
-  document.body.classList.add("modal-open");
+  presentModal(overlay, originEl);
   showLightboxPhoto(index);
   overlay.querySelector(".modal-close").focus();
 }
@@ -386,8 +447,7 @@ function handleLightboxKeydown(e) {
 function closeGalleryLightbox() {
   const overlay = document.getElementById("gallery-lightbox");
   if (!overlay) return;
-  overlay.remove();
-  document.body.classList.remove("modal-open");
+  dismissModal(overlay);
   document.removeEventListener("keydown", handleLightboxKeydown);
   if (lightboxLastFocused) lightboxLastFocused.focus();
 }
@@ -403,18 +463,68 @@ function renderCompetitions(items) {
 
   items.forEach((c) => {
     const card = el(`
-      <article class="card competition-card">
+      <article class="card competition-card" tabindex="0" role="button" aria-haspopup="dialog">
         <div class="card-body">
           <span class="status-badge ${statusClass(c.status)}">${escapeHtml(c.status)}</span>
           <h3>${escapeHtml(c.name)}</h3>
           <p>${escapeHtml(c.description || "")}</p>
           <div class="competition-date">${c.date ? formatDate(c.date) : ""}</div>
+          <span class="officer-more">View Details</span>
         </div>
       </article>
     `);
+    card.addEventListener("click", () => openCompetitionModal(c, card));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openCompetitionModal(c, card);
+      }
+    });
     grid.appendChild(card);
   });
   return node;
+}
+
+let competitionModalLastFocused = null;
+
+function openCompetitionModal(c, originEl) {
+  closeCompetitionModal();
+  competitionModalLastFocused = document.activeElement;
+
+  const overlay = el(`
+    <div class="modal-overlay" id="competition-modal" role="dialog" aria-modal="true">
+      <div class="modal-content officer-modal-content">
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <div class="modal-body">
+          <span class="status-badge ${statusClass(c.status)}">${escapeHtml(c.status)}</span>
+          <h3>${escapeHtml(c.name)}</h3>
+          <p>${escapeHtml(c.description || "")}</p>
+          <div class="competition-date">${c.date ? formatDate(c.date) : ""}</div>
+        </div>
+      </div>
+    </div>
+  `);
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeCompetitionModal();
+  });
+  overlay.querySelector(".modal-close").addEventListener("click", closeCompetitionModal);
+  document.addEventListener("keydown", handleCompetitionModalKeydown);
+
+  presentModal(overlay, originEl);
+  overlay.querySelector(".modal-close").focus();
+}
+
+function handleCompetitionModalKeydown(e) {
+  if (e.key === "Escape") closeCompetitionModal();
+}
+
+function closeCompetitionModal() {
+  const overlay = document.getElementById("competition-modal");
+  if (!overlay) return;
+  dismissModal(overlay);
+  document.removeEventListener("keydown", handleCompetitionModalKeydown);
+  if (competitionModalLastFocused) competitionModalLastFocused.focus();
 }
 
 function renderJoin(settings) {

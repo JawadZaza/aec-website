@@ -554,8 +554,24 @@ nav.main-nav a:hover {
 }
 
 /* Competitions */
+.competition-card {
+  cursor: pointer;
+}
+
+.competition-card:focus-visible {
+  outline: 3px solid var(--gold-dark);
+  outline-offset: -3px;
+}
+
 .competition-card .card-body {
   gap: 6px;
+}
+
+.competition-card .card-body p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .status-badge {
