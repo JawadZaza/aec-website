@@ -43,6 +43,22 @@
     {
       "photo": "assets/images/uploads/IMG_2798.jpg",
       "caption": "The team celebrating after a successful flight at Mojave Air & Space Port."
+    },
+    {
+      "photo": "assets/images/uploads/aec-drone-cad-model.jpg",
+      "caption": "CAD design of the quadcopter frame in Fusion 360."
+    },
+    {
+      "photo": "assets/images/uploads/aec-mojave-drone-assembly-overhead.jpg",
+      "caption": "Final assembly on the landing pad before flight at Mojave."
+    },
+    {
+      "photo": "assets/images/uploads/aec-mojave-laptop-drone-setup.jpg",
+      "caption": "Running pre-flight checks and configuration at the CUASC competition."
+    },
+    {
+      "photo": "assets/images/uploads/aec-mojave-drone-flying.jpg",
+      "caption": "The team watching the UAS fly at Mojave Air & Space Port."
     }
   ]
 }
