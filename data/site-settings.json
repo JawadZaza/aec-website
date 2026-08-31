@@ -7,11 +7,11 @@
   },
   "banner": {
     "enabled": true,
-    "text": "Next meeting: Sept 9th, 6-8 PM in the STEM Center.",
+    "text": "Next meeting: Sept 9th, 6 - 8 PM in the STEM Center.",
     "link": ""
   },
   "meeting": {
-    "day": "Every other Wednesday",
+    "day": "Every Other Wednesday",
     "time": "6:00 PM - 8:00 PM",
     "location": "STEM Center",
     "notes": "No meeting during midterms week, Thanksgiving week, or finals week — check the events calendar for the full schedule."
