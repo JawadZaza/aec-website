@@ -535,7 +535,48 @@ function closeCompetitionModal() {
 function renderJoin(settings) {
   const node = document.getElementById("tpl-join").content.cloneNode(true);
   node.getElementById("join-form-btn").href = settings.joinFormUrl || "#";
+
+  const bannerImage = settings.join && settings.join.backgroundImage;
+  if (bannerImage) {
+    const joinSection = node.getElementById("section-join");
+    const bg = node.getElementById("join-parallax-bg");
+    bg.style.backgroundImage =
+      `linear-gradient(rgba(15, 64, 107, 0.78), rgba(15, 64, 107, 0.78)), url("${imgPath(bannerImage)}")`;
+    joinSection.classList.add("has-banner");
+  }
+
   return node;
+}
+
+/* Moves the join section's background image at a slower rate than the
+   page scrolls, so it drifts up behind the text instead of scrolling
+   in lockstep — the section itself keeps its normal (thin) height. */
+function initJoinParallax() {
+  const bg = document.getElementById("join-parallax-bg");
+  const section = document.getElementById("section-join");
+  if (!bg || !section) return;
+
+  let ticking = false;
+  function update() {
+    ticking = false;
+    const rect = section.getBoundingClientRect();
+    const vh = window.innerHeight;
+    if (rect.bottom < 0 || rect.top > vh) return; // offscreen, skip
+    const progress = (vh - rect.top) / (vh + rect.height); // ~0 entering, ~1 leaving
+    const shift = (progress - 0.5) * 40; // px of drift, tune for subtlety
+    bg.style.transform = `translateY(${shift}px)`;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  update();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
 }
 
 function renderMeetingInfo(settings) {
@@ -682,6 +723,7 @@ async function boot() {
     });
 
     renderFooter(settings);
+    initJoinParallax();
   } catch (err) {
     console.error(err);
     root.innerHTML = `<p class="section-error">Something went wrong loading the page content. Please refresh, or check back later.</p>`;

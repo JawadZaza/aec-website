@@ -136,6 +136,15 @@ collections:
                 widget: "image"
                 required: false
                 hint: "Replaces the plain navy hero background with your photo. Leave empty to keep the default navy background."
+          - label: "Ready to Join Section"
+            name: "join"
+            widget: "object"
+            fields:
+              - label: "Background image (optional)"
+                name: "backgroundImage"
+                widget: "image"
+                required: false
+                hint: "Replaces the plain navy background with your photo. It fades/slides in as visitors scroll to it. Leave empty to keep the default navy background."
           - label: "Announcement Banner"
             name: "banner"
             widget: "object"

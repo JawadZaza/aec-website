@@ -613,9 +613,31 @@ nav.main-nav a:hover {
 
 /* ---------- Join section ---------- */
 #section-join {
+  position: relative;
   background: rgba(15, 64, 107, 0.92);
   color: var(--white);
   text-align: center;
+}
+
+#section-join.has-banner {
+  overflow: hidden;
+  background: var(--navy-dark);
+}
+
+/* Oversized and absolutely positioned so initJoinParallax (main.js) can
+   translate it a bit further than the section's own height without ever
+   exposing an edge; the section itself stays the same thin height. */
+.parallax-bg {
+  position: absolute;
+  inset: -15% 0;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+#section-join .container {
+  position: relative;
+  z-index: 1;
 }
 
 #section-join .section-title,
@@ -625,6 +647,12 @@ nav.main-nav a:hover {
 
 #section-join .section-subtitle {
   color: #dfe9f2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-bg {
+    transform: none !important;
+  }
 }
 
 /* ---------- Meeting info ---------- */

@@ -5,6 +5,9 @@
   "hero": {
     "backgroundImage": "assets/images/uploads/fullerton-college-aerial.jpg"
   },
+  "join": {
+    "backgroundImage": "assets/images/uploads/fullerton-college-night-aerial.jpg"
+  },
   "banner": {
     "enabled": true,
     "text": "Next meeting: Sept 9th, 6 - 8 PM in the STEM Center.",
