@@ -629,7 +629,7 @@ nav.main-nav a:hover {
    exposing an edge; the section itself stays the same thin height. */
 .parallax-bg {
   position: absolute;
-  inset: -15% 0;
+  inset: -22% 0;
   background-size: cover;
   background-position: center;
   will-change: transform;

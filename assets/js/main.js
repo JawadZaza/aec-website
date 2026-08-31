@@ -563,7 +563,7 @@ function initJoinParallax() {
     const vh = window.innerHeight;
     if (rect.bottom < 0 || rect.top > vh) return; // offscreen, skip
     const progress = (vh - rect.top) / (vh + rect.height); // ~0 entering, ~1 leaving
-    const shift = (progress - 0.5) * 40; // px of drift, tune for subtlety
+    const shift = (progress - 0.5) * 70; // px of drift, tune for subtlety
     bg.style.transform = `translateY(${shift}px)`;
   }
 
