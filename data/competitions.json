@@ -5,31 +5,40 @@
       "description": "Our FullWorks team designed, built, and flew a quadcopter UAS to complete autonomous mission tasks against other colleges and universities in June of 2026. Learn more at \n\nhttps://www.calstatela.edu/ecst/c-uasc",
       "status": "Completed",
       "category": "Competition",
-      "date": "2026-06-06"
+      "date": "2026-06-06",
+      "files": []
     },
     {
       "name": "Collegiate Unmanned Aircraft Systems Competition (CUASC) '27",
       "description": "Our FullWorks team will iterate on the former MQ-611 UAS to complete autonomous mission tasks against other colleges and universities in June 2027. Learn more at \n\nhttps://www.calstatela.edu/ecst/c-uasc",
       "status": "In Progress",
       "category": "Competition",
-      "date": "2027-06-06"
+      "date": "2027-06-06",
+      "files": []
     },
     {
       "name": "TBA",
       "description": "TBA",
       "status": "Upcoming",
       "category": "Competition",
-      "date": "2026-09-14"
+      "date": "2026-09-14",
+      "files": []
     },
     {
       "name": "Design and Evaluation of a 3D-Printed Orthopedic Splint",
       "description": "Can a custom 3D-printed splint be made lighter and more breathable than a conventional splint while still providing useful structural stiffness? A student-led research project running through the fall semester, ending in a physical tri-fold research board, a tested prototype, and a dataset comparing printed and conventional splints.",
-      "status": "In Progress",
+      "status": "Upcoming",
       "category": "Research",
-      "date": "2026-09-01",
+      "date": "2026-10-01",
       "files": [
-        { "label": "Research Proposal (PDF)", "url": "assets/documents/aec-3d-printed-splint-research-proposal.pdf" },
-        { "label": "Research Proposal (Word)", "url": "assets/documents/aec-3d-printed-splint-research-proposal.docx" }
+        {
+          "label": "Research Proposal (PDF)",
+          "url": "assets/documents/aec-3d-printed-splint-research-proposal.pdf"
+        },
+        {
+          "label": "Research Proposal (Word)",
+          "url": "assets/documents/aec-3d-printed-splint-research-proposal.docx"
+        }
       ]
     }
   ]
