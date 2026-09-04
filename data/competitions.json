@@ -30,16 +30,7 @@
       "status": "Upcoming",
       "category": "Research",
       "date": "2026-10-01",
-      "files": [
-        {
-          "label": "Research Proposal (PDF)",
-          "url": "assets/documents/aec-3d-printed-splint-research-proposal.pdf"
-        },
-        {
-          "label": "Research Proposal (Word)",
-          "url": "assets/documents/aec-3d-printed-splint-research-proposal.docx"
-        }
-      ]
+      "files": []
     }
   ]
 }
