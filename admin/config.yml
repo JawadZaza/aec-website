@@ -82,7 +82,26 @@ collections:
                 name: "status"
                 widget: "select"
                 options: ["Upcoming", "In Progress", "Completed"]
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options: ["Competition", "Research"]
+                default: "Competition"
+                hint: "Controls which filter pill this card shows under. Add a new option here any time to create a new filter."
               - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+              - label: "Attached files (optional)"
+                name: "files"
+                widget: "list"
+                required: false
+                summary: "{{fields.label}}"
+                hint: "Add as many as you want, any file type (PDF, Word, slides, spreadsheets, zip, etc). Each one becomes a download button on the card, in this order. Drag to reorder, or remove one to take it off the card."
+                fields:
+                  - { label: "Button label", name: "label", widget: "string", hint: "What the button says, e.g. \"Research Proposal (PDF)\" or \"Slide Deck\"." }
+                  - label: "File"
+                    name: "url"
+                    widget: "file"
+                    media_folder: "assets/documents"
+                    public_folder: "assets/documents"
 
   - name: "gallery"
     label: "Gallery"

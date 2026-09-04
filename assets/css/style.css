@@ -556,6 +556,57 @@ nav.main-nav a:hover {
 }
 
 /* Competitions */
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.filter-pill {
+  font-family: inherit;
+  cursor: pointer;
+  border: 2px solid var(--navy);
+  background: transparent;
+  color: var(--navy);
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.filter-pill:hover {
+  background: rgba(15, 64, 107, 0.08);
+}
+
+.filter-pill.active {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.competition-card.hidden {
+  display: none;
+}
+
+.competition-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.category-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--gray-text);
+}
+
 .competition-card {
   cursor: pointer;
 }
@@ -574,6 +625,29 @@ nav.main-nav a:hover {
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.modal-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.modal-downloads .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-outline-navy {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+.btn-outline-navy:hover {
+  background: rgba(15, 64, 107, 0.08);
 }
 
 .status-badge {

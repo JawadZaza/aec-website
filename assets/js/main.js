@@ -16,7 +16,9 @@ const ICONS = {
   instagram:
     '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.24-1.97.4-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 5.59 1.8c.46-.16 1.26-.35 2.43-.4C9.29 1.34 9.67 1.33 12.87 1.33H12Zm0 1.98c-3.15 0-3.5.01-4.73.07-1.05.05-1.62.22-2 .37-.5.19-.86.42-1.24.8-.38.38-.6.74-.8 1.24-.15.38-.32.95-.37 2-.06 1.23-.07 1.58-.07 4.73s.01 3.5.07 4.73c.05 1.05.22 1.62.37 2 .19.5.42.86.8 1.24.38.38.74.6 1.24.8.38.15.95.32 2 .37 1.23.06 1.58.07 4.73.07s3.5-.01 4.73-.07c1.05-.05 1.62-.22 2-.37.5-.19.86-.42 1.24-.8.38-.38.6-.74.8-1.24.15-.38.32-.95.37-2 .06-1.23.07-1.58.07-4.73s-.01-3.5-.07-4.73c-.05-1.05-.22-1.62-.37-2a3.2 3.2 0 0 0-.8-1.24 3.2 3.2 0 0 0-1.24-.8c-.38-.15-.95-.32-2-.37-1.23-.06-1.58-.07-4.73-.07ZM12 6.87A5.13 5.13 0 1 1 6.87 12 5.13 5.13 0 0 1 12 6.87Zm0 1.98A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.34-2.03a1.2 1.2 0 1 1-1.2-1.2 1.2 1.2 0 0 1 1.2 1.2Z"/></svg>',
   discord:
-    '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.32 4.79A18.5 18.5 0 0 0 15.7 3.3a.07.07 0 0 0-.08.04c-.2.36-.43.83-.58 1.2a17.1 17.1 0 0 0-5.08 0 8.4 8.4 0 0 0-.6-1.2.07.07 0 0 0-.07-.04 18.4 18.4 0 0 0-4.62 1.49.07.07 0 0 0-.03.03C1.5 9.1.8 13.28 1.14 17.4a.08.08 0 0 0 .03.05 18.6 18.6 0 0 0 5.6 2.87.07.07 0 0 0 .08-.03c.43-.6.82-1.24 1.15-1.9a.07.07 0 0 0-.04-.1 12.2 12.2 0 0 1-1.75-.85.07.07 0 0 1-.01-.12c.12-.09.23-.18.35-.27a.07.07 0 0 1 .07-.01c3.67 1.7 7.65 1.7 11.28 0a.07.07 0 0 1 .07.01c.12.1.23.18.35.27a.07.07 0 0 1-.01.12c-.56.33-1.14.6-1.75.85a.07.07 0 0 0-.04.1c.34.66.73 1.3 1.15 1.9a.07.07 0 0 0 .08.03 18.5 18.5 0 0 0 5.61-2.87.07.07 0 0 0 .03-.05c.4-4.76-.67-8.9-2.83-12.58a.06.06 0 0 0-.03-.03ZM8.68 14.8c-1.1 0-2-1.03-2-2.29s.88-2.28 2-2.28 2.02 1.03 2 2.28c0 1.26-.89 2.29-2 2.29Zm6.65 0c-1.1 0-2-1.03-2-2.29s.88-2.28 2-2.28 2.02 1.03 2 2.28c0 1.26-.88 2.29-2 2.29Z"/></svg>'
+    '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.32 4.79A18.5 18.5 0 0 0 15.7 3.3a.07.07 0 0 0-.08.04c-.2.36-.43.83-.58 1.2a17.1 17.1 0 0 0-5.08 0 8.4 8.4 0 0 0-.6-1.2.07.07 0 0 0-.07-.04 18.4 18.4 0 0 0-4.62 1.49.07.07 0 0 0-.03.03C1.5 9.1.8 13.28 1.14 17.4a.08.08 0 0 0 .03.05 18.6 18.6 0 0 0 5.6 2.87.07.07 0 0 0 .08-.03c.43-.6.82-1.24 1.15-1.9a.07.07 0 0 0-.04-.1 12.2 12.2 0 0 1-1.75-.85.07.07 0 0 1-.01-.12c.12-.09.23-.18.35-.27a.07.07 0 0 1 .07-.01c3.67 1.7 7.65 1.7 11.28 0a.07.07 0 0 1 .07.01c.12.1.23.18.35.27a.07.07 0 0 1-.01.12c-.56.33-1.14.6-1.75.85a.07.07 0 0 0-.04.1c.34.66.73 1.3 1.15 1.9a.07.07 0 0 0 .08.03 18.5 18.5 0 0 0 5.61-2.87.07.07 0 0 0 .03-.05c.4-4.76-.67-8.9-2.83-12.58a.06.06 0 0 0-.03-.03ZM8.68 14.8c-1.1 0-2-1.03-2-2.29s.88-2.28 2-2.28 2.02 1.03 2 2.28c0 1.26-.89 2.29-2 2.29Zm6.65 0c-1.1 0-2-1.03-2-2.29s.88-2.28 2-2.28 2.02 1.03 2 2.28c0 1.26-.88 2.29-2 2.29Z"/></svg>',
+  download:
+    '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 21h14"></path></svg>'
 };
 
 async function loadJSON(path) {
@@ -460,17 +462,30 @@ function closeGalleryLightbox() {
 function renderCompetitions(items) {
   const node = document.getElementById("tpl-competitions").content.cloneNode(true);
   const grid = node.getElementById("competitions-grid");
+  const filtersBar = node.getElementById("competitions-filters");
 
   if (!items.length) {
     grid.appendChild(el(`<p class="empty-state">No competitions listed right now.</p>`));
     return node;
   }
 
+  // Preserve first-seen order so "Competition" leads if it's the more common category,
+  // but don't assume any fixed set — new categories added in the CMS just show up.
+  const categories = [];
   items.forEach((c) => {
+    const cat = c.category || "Competition";
+    if (!categories.includes(cat)) categories.push(cat);
+  });
+
+  items.forEach((c) => {
+    const category = c.category || "Competition";
     const card = el(`
-      <article class="card competition-card" tabindex="0" role="button" aria-haspopup="dialog">
+      <article class="card competition-card" data-category="${escapeHtml(category)}" tabindex="0" role="button" aria-haspopup="dialog">
         <div class="card-body">
-          <span class="status-badge ${statusClass(c.status)}">${escapeHtml(c.status)}</span>
+          <div class="competition-badges">
+            <span class="status-badge ${statusClass(c.status)}">${escapeHtml(c.status)}</span>
+            <span class="category-tag">${escapeHtml(category)}</span>
+          </div>
           <h3>${escapeHtml(c.name)}</h3>
           <p>${escapeHtml(c.description || "")}</p>
           <div class="competition-date">${c.date ? formatDate(c.date) : ""}</div>
@@ -487,6 +502,25 @@ function renderCompetitions(items) {
     });
     grid.appendChild(card);
   });
+
+  if (categories.length > 1) {
+    const allBtn = el(`<button type="button" class="filter-pill active" data-filter="all">All</button>`);
+    filtersBar.appendChild(allBtn);
+    categories.forEach((cat) => {
+      filtersBar.appendChild(el(`<button type="button" class="filter-pill" data-filter="${escapeHtml(cat)}">${escapeHtml(cat)}</button>`));
+    });
+
+    filtersBar.addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-pill");
+      if (!btn) return;
+      filtersBar.querySelectorAll(".filter-pill").forEach((b) => b.classList.toggle("active", b === btn));
+      const filter = btn.dataset.filter;
+      grid.querySelectorAll(".competition-card").forEach((card) => {
+        card.classList.toggle("hidden", filter !== "all" && card.dataset.category !== filter);
+      });
+    });
+  }
+
   return node;
 }
 
@@ -495,6 +529,20 @@ let competitionModalLastFocused = null;
 function openCompetitionModal(c, originEl) {
   closeCompetitionModal();
   competitionModalLastFocused = document.activeElement;
+
+  const files = Array.isArray(c.files) ? c.files.filter((f) => f && f.url) : [];
+  const downloadsHtml = files.length
+    ? `
+      <div class="modal-downloads">
+        ${files
+          .map(
+            (f, i) =>
+              `<a class="btn ${i === 0 ? "btn-navy" : "btn-outline-navy"}" href="${imgPath(f.url)}" target="_blank" rel="noopener" download>${ICONS.download}${escapeHtml(f.label || "Download")}</a>`
+          )
+          .join("")}
+      </div>
+    `
+    : "";
 
   const overlay = el(`
     <div class="modal-overlay" id="competition-modal" role="dialog" aria-modal="true">
@@ -505,6 +553,7 @@ function openCompetitionModal(c, originEl) {
           <h3>${escapeHtml(c.name)}</h3>
           <p>${escapeHtml(c.description || "")}</p>
           <div class="competition-date">${c.date ? formatDate(c.date) : ""}</div>
+          ${downloadsHtml}
         </div>
       </div>
     </div>
