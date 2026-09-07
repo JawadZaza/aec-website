@@ -1,0 +1,17 @@
+{
+  "schools": [
+    { "name": "Massachusetts Institute of Technology", "logo": "assets/images/schools/mit.png", "scale": 1.12 },
+    { "name": "University of California, Los Angeles", "logo": "assets/images/schools/ucla.svg", "scale": 1.05 },
+    { "name": "University of California, Berkeley", "logo": "assets/images/schools/ucb.svg", "scale": 1.08 },
+    { "name": "University of California, Irvine", "logo": "assets/images/schools/uci.svg", "scale": 0.78 },
+    { "name": "University of California, San Diego", "logo": "assets/images/schools/ucsd.svg", "scale": 1.02 },
+    { "name": "University of California, Davis", "logo": "assets/images/schools/ucd.svg", "scale": 0.78 },
+    { "name": "California State University, Long Beach", "logo": "assets/images/schools/csulb.png", "scale": 1.02 },
+    { "name": "California State University, Los Angeles", "logo": "assets/images/schools/csula.png", "scale": 0.9 },
+    { "name": "California State University, Fullerton", "logo": "assets/images/schools/csuf.svg", "scale": 0.95 },
+    { "name": "California State Polytechnic University, Pomona", "logo": "assets/images/schools/cpp.png", "scale": 1.35 },
+    { "name": "University of Virginia", "logo": "assets/images/schools/uva.png", "scale": 2.2 },
+    { "name": "San José State University", "logo": "assets/images/schools/sjsu.svg", "scale": 1.15 },
+    { "name": "University of San Diego", "logo": "assets/images/schools/usd.png", "scale": 1.15 }
+  ]
+}

@@ -88,7 +88,8 @@ collections:
                 options: ["Competition", "Research"]
                 default: "Competition"
                 hint: "Controls which filter pill this card shows under. Add a new option here any time to create a new filter."
-              - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "Start date", name: "startDate", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "End date", name: "endDate", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: false, hint: "Leave blank if it's open-ended — the card will just show the start date." }
               - label: "Attached files (optional)"
                 name: "files"
                 widget: "list"
@@ -118,6 +119,26 @@ collections:
             fields:
               - { label: "Photo", name: "photo", widget: "image" }
               - { label: "Caption", name: "caption", widget: "string" }
+
+  - name: "schools"
+    label: "Transfer Schools"
+    files:
+      - name: "schools"
+        label: "Transfer Schools"
+        file: "data/schools.json"
+        fields:
+          - label: "Schools"
+            name: "schools"
+            widget: "list"
+            summary: "{{fields.name}}"
+            hint: "Drag to reorder. Logos are shown as navy silhouettes, so upload a file with a TRANSPARENT background (SVG or PNG) — a logo with a white box behind it will show up as a solid navy block."
+            fields:
+              - { label: "School name", name: "name", widget: "string", hint: "Used as the alt text for screen readers. Not shown on the page." }
+              - label: "Logo"
+                name: "logo"
+                widget: "image"
+                media_folder: "assets/images/schools"
+                public_folder: "assets/images/schools"
 
   - name: "sections"
     label: "Sections"

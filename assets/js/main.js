@@ -9,7 +9,8 @@ const DATA_PATHS = {
   officers: "data/officers.json",
   advisors: "data/advisors.json",
   competitions: "data/competitions.json",
-  gallery: "data/gallery.json"
+  gallery: "data/gallery.json",
+  schools: "data/schools.json"
 };
 
 const ICONS = {
@@ -39,6 +40,24 @@ function formatDate(isoDate) {
   return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
 
+/* "Jan 27 – Jun 6, 2026" when both ends share a year, "Jan 27, 2026 – Jun 6, 2027"
+   when they don't. Falls back to a single date so older entries that only have
+   one still render. */
+function formatDateRange(start, end) {
+  if (!start) return end ? formatDate(end) : "";
+  if (!end) return formatDate(start);
+
+  const startYear = start.split("-")[0];
+  const endYear = end.split("-")[0];
+
+  if (startYear === endYear) {
+    const [y, m, d] = start.split("-").map(Number);
+    const startShort = new Date(y, m - 1, d).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    return `${startShort} – ${formatDate(end)}`;
+  }
+  return `${formatDate(start)} – ${formatDate(end)}`;
+}
+
 function statusClass(status) {
   return "status-" + String(status).toLowerCase().trim().replace(/\s+/g, "-");
 }
@@ -61,11 +80,12 @@ function renderNav(visibleSectionIds) {
     officers: "Board",
     advisors: "Advisors",
     competitions: "Competitions",
+    schools: "Transfers",
     join: "Join",
     "meeting-info": "Meetings",
     socials: "Socials"
   };
-  const anchorable = new Set(["hero", "gallery", "events", "officers", "advisors", "competitions", "meeting-info", "socials"]);
+  const anchorable = new Set(["hero", "gallery", "events", "officers", "advisors", "competitions", "schools", "meeting-info", "socials"]);
 
   const list = document.getElementById("main-nav-list");
   const mobile = document.getElementById("mobile-nav");
@@ -488,7 +508,7 @@ function renderCompetitions(items) {
           </div>
           <h3>${escapeHtml(c.name)}</h3>
           <p>${escapeHtml(c.description || "")}</p>
-          <div class="competition-date">${c.date ? formatDate(c.date) : ""}</div>
+          <div class="competition-date">${formatDateRange(c.startDate || c.date, c.endDate)}</div>
           <span class="officer-more">View Details</span>
         </div>
       </article>
@@ -552,7 +572,7 @@ function openCompetitionModal(c, originEl) {
           <span class="status-badge ${statusClass(c.status)}">${escapeHtml(c.status)}</span>
           <h3>${escapeHtml(c.name)}</h3>
           <p>${escapeHtml(c.description || "")}</p>
-          <div class="competition-date">${c.date ? formatDate(c.date) : ""}</div>
+          <div class="competition-date">${formatDateRange(c.startDate || c.date, c.endDate)}</div>
           ${downloadsHtml}
         </div>
       </div>
@@ -579,6 +599,28 @@ function closeCompetitionModal() {
   dismissModal(overlay);
   document.removeEventListener("keydown", handleCompetitionModalKeydown);
   if (competitionModalLastFocused) competitionModalLastFocused.focus();
+}
+
+function renderSchools(items) {
+  const node = document.getElementById("tpl-schools").content.cloneNode(true);
+  const grid = node.getElementById("schools-grid");
+
+  if (!items || !items.length) {
+    grid.appendChild(el(`<p class="empty-state">Transfer list coming soon.</p>`));
+    return node;
+  }
+
+  items.forEach((s) => {
+    if (!s.logo) return;
+    const img = el(`<img class="school-logo" src="${imgPath(s.logo)}" alt="${escapeHtml(s.name || "")}" loading="lazy">`);
+    // Wordmarks have different cap-heights inside their own artboards, so a
+    // uniform box height doesn't make them look the same size. Optional
+    // per-logo nudge evens them out optically.
+    const scale = parseFloat(s.scale);
+    if (scale > 0) img.style.setProperty("--logo-scale", scale);
+    grid.appendChild(img);
+  });
+  return node;
 }
 
 function renderJoin(settings) {
@@ -729,6 +771,7 @@ const SECTION_RENDERERS = {
   officers: (data) => renderOfficers(data.officers),
   advisors: (data) => renderAdvisors(data.advisors),
   competitions: (data) => renderCompetitions(data.competitions),
+  schools: (data) => renderSchools(data.schools),
   join: (data) => renderJoin(data.settings),
   "meeting-info": (data) => renderMeetingInfo(data.settings),
   socials: (data) => renderSocials(data.settings)
@@ -737,14 +780,15 @@ const SECTION_RENDERERS = {
 async function boot() {
   const root = document.getElementById("sections-root");
   try {
-    const [settings, sectionsFile, eventsFile, officersFile, advisorsFile, competitionsFile, galleryFile] = await Promise.all([
+    const [settings, sectionsFile, eventsFile, officersFile, advisorsFile, competitionsFile, galleryFile, schoolsFile] = await Promise.all([
       loadJSON(DATA_PATHS.settings),
       loadJSON(DATA_PATHS.sections),
       loadJSON(DATA_PATHS.events),
       loadJSON(DATA_PATHS.officers),
       loadJSON(DATA_PATHS.advisors),
       loadJSON(DATA_PATHS.competitions),
-      loadJSON(DATA_PATHS.gallery)
+      loadJSON(DATA_PATHS.gallery),
+      loadJSON(DATA_PATHS.schools)
     ]);
 
     const data = {
@@ -753,7 +797,8 @@ async function boot() {
       officers: officersFile.officers,
       advisors: advisorsFile.advisors,
       competitions: competitionsFile.competitions,
-      gallery: galleryFile.gallery
+      gallery: galleryFile.gallery,
+      schools: schoolsFile.schools
     };
 
     renderBanner(settings);

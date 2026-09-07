@@ -685,6 +685,49 @@ nav.main-nav a:hover {
   padding-top: 8px;
 }
 
+/* ---------- Transfer schools ---------- */
+.schools-wall {
+  border-top: 1px solid rgba(15, 64, 107, 0.12);
+  border-bottom: 1px solid rgba(15, 64, 107, 0.12);
+  padding: 40px 0;
+}
+
+.schools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 34px 52px;
+}
+
+/* Logo files are pre-recoloured to navy so the wall reads as one set — several
+   schools only publish white-on-transparent marks, which would otherwise be
+   invisible here. Uniform height (not width) keeps their optical weight even;
+   the max-width just stops the very wide wordmarks from running away. */
+.school-logo {
+  height: calc(34px * var(--logo-scale, 1));
+  width: auto;
+  max-width: 270px;
+  object-fit: contain;
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+}
+
+.school-logo:hover {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .schools-grid {
+    gap: 26px 36px;
+  }
+
+  .school-logo {
+    height: calc(26px * var(--logo-scale, 1));
+    max-width: 160px;
+  }
+}
+
 /* ---------- Join section ---------- */
 #section-join {
   position: relative;

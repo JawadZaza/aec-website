@@ -31,6 +31,11 @@
       "visible": true
     },
     {
+      "id": "schools",
+      "label": "Where Our Members Transfer",
+      "visible": true
+    },
+    {
       "id": "join",
       "label": "Join / Application",
       "visible": true
