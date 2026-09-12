@@ -12,7 +12,9 @@
       "date": "2026-09-16",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "Panel discussion on transferring into four-year engineering programs, featuring past AEC members."
+      "description": "Panel discussion on transferring into four-year engineering programs, featuring past AEC members.",
+      "rsvpUrl": "https://forms.cloud.microsoft/r/6dAeV3YwJr",
+      "rsvpQr": "assets/images/uploads/transfer-panel-rsvp-qr.png"
     },
     {
       "title": "Fusion 360 & 3D Printing Workshop",

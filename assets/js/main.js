@@ -239,6 +239,14 @@ function renderEvents(items) {
   }
 
   sorted.forEach((ev) => {
+    const rsvpHtml = ev.rsvpUrl
+      ? `
+        <div class="event-rsvp">
+          ${ev.rsvpQr ? `<img class="event-rsvp-qr" src="${imgPath(ev.rsvpQr)}" alt="QR code to RSVP for ${escapeHtml(ev.title)}" loading="lazy">` : ""}
+          <a class="btn btn-gold" href="${escapeHtml(ev.rsvpUrl)}" target="_blank" rel="noopener">RSVP</a>
+        </div>
+      `
+      : "";
     const card = el(`
       <article class="card event-card">
         <div class="card-body">
@@ -249,6 +257,7 @@ function renderEvents(items) {
             <span>&#128205; ${escapeHtml(ev.location || "")}</span>
           </div>
           <p>${escapeHtml(ev.description || "")}</p>
+          ${rsvpHtml}
         </div>
       </article>
     `);

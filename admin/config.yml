@@ -29,6 +29,16 @@ collections:
               - { label: "Time", name: "time", widget: "string", hint: "e.g. 5:00 PM - 6:30 PM" }
               - { label: "Location", name: "location", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
+              - label: "RSVP link (optional)"
+                name: "rsvpUrl"
+                widget: "string"
+                required: false
+                hint: "A Google/Microsoft Form link, Tally form, etc. Adds an RSVP button to this event's card. Leave blank for events that don't need an RSVP."
+              - label: "RSVP QR code (optional)"
+                name: "rsvpQr"
+                widget: "image"
+                required: false
+                hint: "A QR image pointing at the same RSVP link above. Ask Claude to generate one (or use any free QR generator) — don't leave this pointed at a different link than the button."
 
   - name: "officers"
     label: "Board"
