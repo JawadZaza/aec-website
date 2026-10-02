@@ -5,7 +5,9 @@
       "date": "2026-09-09",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "Kick off the semester with casual games and a chance to meet fellow members."
+      "description": "Kick off the semester with casual games and a chance to meet fellow members.",
+      "rsvpUrl": "",
+      "rsvpQr": ""
     },
     {
       "title": "Transfer Panel",
@@ -18,52 +20,66 @@
     },
     {
       "title": "Fusion 360 & 3D Printing Workshop",
-      "date": "2026-09-30",
+      "date": "2026-10-07",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "Hands-on workshop covering Fusion 360 CAD design and 3D printing fundamentals."
+      "description": "Hands-on workshop covering Fusion 360 CAD design and 3D printing fundamentals.",
+      "rsvpUrl": "",
+      "rsvpQr": ""
     },
     {
       "title": "Egg Drop Challenge",
       "date": "2026-10-07",
       "time": "TBD",
       "location": "Quad",
-      "description": "Design and build an egg protection system in this hands-on engineering challenge."
+      "description": "Design and build an egg protection system in this hands-on engineering challenge.",
+      "rsvpUrl": "",
+      "rsvpQr": ""
     },
     {
       "title": "Industry Panel",
       "date": "2026-10-14",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "Hear from working engineers across industry about their career paths and advice for students."
+      "description": "Hear from working engineers across industry about their career paths and advice for students.",
+      "rsvpUrl": "",
+      "rsvpQr": ""
     },
     {
       "title": "KiCAD & Altium Workshop",
       "date": "2026-10-28",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "Hands-on workshop covering PCB design basics using KiCAD and Altium."
+      "description": "Hands-on workshop covering PCB design basics using KiCAD and Altium.",
+      "rsvpUrl": "",
+      "rsvpQr": ""
     },
     {
       "title": "In-Person Guest Speaker",
       "date": "2026-11-04",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "In-person guest speaker sharing insights from their engineering career."
+      "description": "In-person guest speaker sharing insights from their engineering career.",
+      "rsvpUrl": "",
+      "rsvpQr": ""
     },
     {
       "title": "Arduino Workshop",
       "date": "2026-11-25",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "Hands-on introduction to Arduino programming and circuits."
+      "description": "Hands-on introduction to Arduino programming and circuits.",
+      "rsvpUrl": "",
+      "rsvpQr": ""
     },
     {
       "title": "Social Night 2",
       "date": "2026-12-02",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "Wrap up the semester with food, games, and celebrating a great year."
+      "description": "Wrap up the semester with food, games, and celebrating a great year.",
+      "rsvpUrl": "",
+      "rsvpQr": ""
     }
   ]
 }
