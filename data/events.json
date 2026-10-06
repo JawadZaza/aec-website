@@ -28,20 +28,20 @@
       "rsvpQr": ""
     },
     {
-      "title": "Egg Drop Challenge",
-      "date": "2026-10-21",
-      "time": "TBD",
-      "location": "Quad",
-      "description": "Design and build an egg protection system in this hands-on engineering challenge.",
-      "rsvpUrl": "",
-      "rsvpQr": ""
-    },
-    {
       "title": "Industry Panel",
       "date": "2026-10-14",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
       "description": "Hear from working engineers across industry about their career paths and advice for students.",
+      "rsvpUrl": "",
+      "rsvpQr": ""
+    },
+    {
+      "title": "Egg Drop Challenge",
+      "date": "2026-10-21",
+      "time": "TBD",
+      "location": "Quad",
+      "description": "Design and build an egg protection system in this hands-on engineering challenge.",
       "rsvpUrl": "",
       "rsvpQr": ""
     },
