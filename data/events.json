@@ -19,13 +19,13 @@
       "rsvpQr": "assets/images/uploads/transfer-panel-rsvp-qr.png"
     },
     {
-      "title": "Fusion 360 & 3D Printing Workshop",
+      "title": "Fusion & 3D Printing Workshop",
       "date": "2026-10-07",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
       "description": "Hands-on workshop covering Fusion 360 CAD design and 3D printing fundamentals.",
-      "rsvpUrl": "",
-      "rsvpQr": ""
+      "rsvpUrl": "https://forms.cloud.microsoft/r/bPqUhcmE2Z",
+      "rsvpQr": "/assets/images/uploads/QRCode for RSVP for the Fusion & 3D Printing Workshop.png"
     },
     {
       "title": "Industry Panel",
