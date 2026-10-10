@@ -113,6 +113,15 @@ collections:
                     widget: "file"
                     media_folder: "assets/documents"
                     public_folder: "assets/documents"
+              - label: "Learn-more links (optional)"
+                name: "links"
+                widget: "list"
+                required: false
+                summary: "{{fields.label}}"
+                hint: "Links to outside pages or documents (official competition site, rules PDF, news story). Each one becomes a \"Learn more\" button in the card's pop-up."
+                fields:
+                  - { label: "Button label", name: "label", widget: "string" }
+                  - { label: "Link (https://...)", name: "url", widget: "string" }
 
   - name: "gallery"
     label: "Gallery"

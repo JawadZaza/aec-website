@@ -663,6 +663,22 @@ nav.main-nav a:hover {
   gap: 8px;
 }
 
+.modal-links {
+  margin-top: 18px;
+}
+
+.modal-links-heading {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.modal-links .modal-downloads {
+  margin-top: 8px;
+}
+
 .btn-outline-navy {
   background: transparent;
   color: var(--navy);

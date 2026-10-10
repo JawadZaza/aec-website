@@ -52,6 +52,9 @@ Sveltia CMS at `/admin` (GitHub-backend, PAT auth).
   above the grid. Entries can carry an optional `files` array
   (`{label, url}`) that renders as download buttons in the modal — this is
   how the 3D-printed-splint research proposal's PDF/Word download works.
+  Entries can also carry a `links` array (`{label, url}`, https only) that
+  renders "Learn more" outbound buttons (official competition pages, rules
+  PDFs, news stories). `endDate` is optional (single date shown if blank).
   Dates are `startDate`/`endDate` (not a single `date`) — `formatDateRange()`
   in `main.js` handles same-year vs cross-year display.
 - **Transfer schools section** (`data/schools.json`, `.school-logo` CSS):

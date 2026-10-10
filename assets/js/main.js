@@ -19,7 +19,9 @@ const ICONS = {
   discord:
     '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.32 4.79A18.5 18.5 0 0 0 15.7 3.3a.07.07 0 0 0-.08.04c-.2.36-.43.83-.58 1.2a17.1 17.1 0 0 0-5.08 0 8.4 8.4 0 0 0-.6-1.2.07.07 0 0 0-.07-.04 18.4 18.4 0 0 0-4.62 1.49.07.07 0 0 0-.03.03C1.5 9.1.8 13.28 1.14 17.4a.08.08 0 0 0 .03.05 18.6 18.6 0 0 0 5.6 2.87.07.07 0 0 0 .08-.03c.43-.6.82-1.24 1.15-1.9a.07.07 0 0 0-.04-.1 12.2 12.2 0 0 1-1.75-.85.07.07 0 0 1-.01-.12c.12-.09.23-.18.35-.27a.07.07 0 0 1 .07-.01c3.67 1.7 7.65 1.7 11.28 0a.07.07 0 0 1 .07.01c.12.1.23.18.35.27a.07.07 0 0 1-.01.12c-.56.33-1.14.6-1.75.85a.07.07 0 0 0-.04.1c.34.66.73 1.3 1.15 1.9a.07.07 0 0 0 .08.03 18.5 18.5 0 0 0 5.61-2.87.07.07 0 0 0 .03-.05c.4-4.76-.67-8.9-2.83-12.58a.06.06 0 0 0-.03-.03ZM8.68 14.8c-1.1 0-2-1.03-2-2.29s.88-2.28 2-2.28 2.02 1.03 2 2.28c0 1.26-.89 2.29-2 2.29Zm6.65 0c-1.1 0-2-1.03-2-2.29s.88-2.28 2-2.28 2.02 1.03 2 2.28c0 1.26-.88 2.29-2 2.29Z"/></svg>',
   download:
-    '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 21h14"></path></svg>'
+    '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 21h14"></path></svg>',
+  external:
+    '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"></path><path d="M20 4l-9 9"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg>'
 };
 
 async function loadJSON(path) {
@@ -573,6 +575,23 @@ function openCompetitionModal(c, originEl) {
     `
     : "";
 
+  const links = Array.isArray(c.links) ? c.links.filter((l) => l && /^https?:\/\//i.test(l.url || "")) : [];
+  const linksHtml = links.length
+    ? `
+      <div class="modal-links">
+        <div class="modal-links-heading">Learn more</div>
+        <div class="modal-downloads">
+          ${links
+            .map(
+              (l) =>
+                `<a class="btn btn-outline-navy" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">${ICONS.external}${escapeHtml(l.label || l.url)}</a>`
+            )
+            .join("")}
+        </div>
+      </div>
+    `
+    : "";
+
   const overlay = el(`
     <div class="modal-overlay" id="competition-modal" role="dialog" aria-modal="true">
       <div class="modal-content officer-modal-content">
@@ -583,6 +602,7 @@ function openCompetitionModal(c, originEl) {
           <p>${escapeHtml(c.description || "")}</p>
           <div class="competition-date">${formatDateRange(c.startDate || c.date, c.endDate)}</div>
           ${downloadsHtml}
+          ${linksHtml}
         </div>
       </div>
     </div>

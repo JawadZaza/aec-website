@@ -2,26 +2,60 @@
   "competitions": [
     {
       "name": "Collegiate Unmanned Aircraft Systems Competition (CUASC) '26",
-      "description": "Our FullWorks team designed, built, and flew a quadcopter UAS to complete autonomous mission tasks against other colleges and universities in June of 2026. Learn more at \n\nhttps://www.calstatela.edu/ecst/c-uasc",
+      "description": "Our FullWorks team designed, built, and flew a quadcopter UAS to complete autonomous mission tasks against other colleges and universities in June of 2026.",
       "status": "Completed",
       "category": "Competition",
       "startDate": "2026-01-27",
       "endDate": "2026-06-06",
-      "files": []
+      "files": [],
+      "links": [
+        { "label": "Competition Website", "url": "https://www.calstatela.edu/ecst/c-uasc" }
+      ]
+    },
+    {
+      "name": "NASA MINDS Competition '24",
+      "description": "Our club's team won first place at the 2024 NASA MINDS (MUREP Innovative New Designs for Space) competition, beating Cal Poly Pomona, Fresno State, and other four-year schools nationwide. The team built an RFID-based system that helps astronauts find lost tools and objects in under 10 seconds, earning a $3,000 prize and a VIP trip to Kennedy Space Center.",
+      "status": "Completed",
+      "category": "Competition",
+      "startDate": "2024-05-03",
+      "files": [],
+      "links": [
+        { "label": "Fullerton College News Story", "url": "https://news.fullcoll.edu/applied-engineering-team-dominates-at-2024-nasa-minds-competition/" },
+        { "label": "NASA 2024 Winners List (PDF)", "url": "https://www.nasa.gov/wp-content/uploads/2024/09/2024-nasa-minds-winners-list.pdf" }
+      ]
     },
     {
       "name": "Collegiate Unmanned Aircraft Systems Competition (CUASC) '27",
-      "description": "Our FullWorks team will iterate on the former MQ-611 UAS to complete autonomous mission tasks against other colleges and universities in June 2027. Learn more at \n\nhttps://www.calstatela.edu/ecst/c-uasc",
+      "description": "Our FullWorks team will iterate on the former MQ-611 UAS to complete autonomous mission tasks against other colleges and universities in June 2027.",
       "status": "In Progress",
       "category": "Competition",
       "startDate": "2026-07-01",
       "endDate": "2027-06-06",
-      "files": []
+      "files": [],
+      "links": [
+        { "label": "Competition Website", "url": "https://www.calstatela.edu/ecst/c-uasc" },
+        { "label": "2027 Rules (PDF)", "url": "https://www.calstatela.edu/sites/default/files/2027%20C-UASC%20Rules%20Rev%201.pdf" },
+        { "label": "FAQ (PDF)", "url": "https://www.calstatela.edu/sites/default/files/FAQ%20C-UASC%202026%20Rev%202%202026-02-19_accessible.pdf" },
+        { "label": "Design Guidelines (Word)", "url": "https://www.calstatela.edu/sites/default/files/2026%20CSU%20UAV%20Design%20Competition%20Guidelines%20and%20Evaluation%20Criteria_accessible.docx" }
+      ]
+    },
+    {
+      "name": "CSU 3D-Printed Fixed-Wing Aircraft Competition (C-3DPAC) '27",
+      "description": "Our team will design and 3D print a fixed-wing aircraft to compete against other colleges and universities at Cal State LA on May 29, 2027. Entries are judged on flight performance (eight seconds of powered propulsion followed by a glide) and on design innovation.",
+      "status": "In Progress",
+      "category": "Competition",
+      "startDate": "2027-05-29",
+      "files": [],
+      "links": [
+        { "label": "Competition Website", "url": "https://www.calstatela.edu/ecst/aircraft-competition" },
+        { "label": "2027 Rules & Checklist (PDF)", "url": "https://www.calstatela.edu/sites/default/files/2027%20C-3DPAC%20Rules%20and%20Checklist%20Rev%201.pdf" },
+        { "label": "Design Guidelines (Word)", "url": "https://www.calstatela.edu/sites/default/files/2026%20CSU%20UAV%20Design%20Competition%20Guidelines%20and%20Evaluation%20Criteria_accessible.docx" }
+      ]
     },
     {
       "name": "Design and Evaluation of a 3D-Printed Orthopedic Splint",
       "description": "Can a custom 3D-printed splint be made lighter and more breathable than a conventional splint while still providing useful structural stiffness? A student-led research project running through the fall semester, ending in a physical tri-fold research board, a tested prototype, and a dataset comparing printed and conventional splints.",
-      "status": "Upcoming",
+      "status": "In Progress",
       "category": "Research",
       "startDate": "2026-10-01",
       "endDate": "2026-12-01",
