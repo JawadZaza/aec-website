@@ -28,11 +28,11 @@
       "rsvpQr": "/assets/images/uploads/QRCode for RSVP for the Fusion & 3D Printing Workshop.png"
     },
     {
-      "title": "Altium Workshop",
+      "title": "Altium Designer Workshop",
       "date": "2026-10-14",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
-      "description": "Hands-on workshop covering PCB design basics using KiCAD and Altium.",
+      "description": "Get hands-on experience creating professional electrical schematics using Altium Designer.\n\nLearn the fundamentals of circuit diagrams, component placement, wiring connections, and schematic design.",
       "rsvpUrl": "",
       "rsvpQr": ""
     },
