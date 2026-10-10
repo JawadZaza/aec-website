@@ -28,8 +28,17 @@
       "rsvpQr": "/assets/images/uploads/QRCode for RSVP for the Fusion & 3D Printing Workshop.png"
     },
     {
-      "title": "Industry Panel",
+      "title": "KiCAD & Altium Workshop",
       "date": "2026-10-14",
+      "time": "6:00 PM - 8:00 PM",
+      "location": "STEM Center",
+      "description": "Hands-on workshop covering PCB design basics using KiCAD and Altium.",
+      "rsvpUrl": "",
+      "rsvpQr": ""
+    },
+    {
+      "title": "Industry Panel",
+      "date": "2026-10-28",
       "time": "6:00 PM - 8:00 PM",
       "location": "STEM Center",
       "description": "Hear from working engineers across industry about their career paths and advice for students.",
@@ -38,19 +47,10 @@
     },
     {
       "title": "Egg Drop Challenge",
-      "date": "2026-10-21",
+      "date": "2026-10-31",
       "time": "TBD",
-      "location": "Quad",
+      "location": "Parking Structure Roof",
       "description": "Design and build an egg protection system in this hands-on engineering challenge.",
-      "rsvpUrl": "",
-      "rsvpQr": ""
-    },
-    {
-      "title": "KiCAD & Altium Workshop",
-      "date": "2026-10-28",
-      "time": "6:00 PM - 8:00 PM",
-      "location": "STEM Center",
-      "description": "Hands-on workshop covering PCB design basics using KiCAD and Altium.",
       "rsvpUrl": "",
       "rsvpQr": ""
     },
